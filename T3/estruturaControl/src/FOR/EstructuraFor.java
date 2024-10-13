@@ -1,3 +1,5 @@
+package FOR;
+
 import java.util.Scanner;
 
 public class EstructuraFor {

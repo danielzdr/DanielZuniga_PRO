@@ -1,3 +1,5 @@
+package SWITCH;
+
 public class EntradaSwitch {
 
     public static void main(String[]args){

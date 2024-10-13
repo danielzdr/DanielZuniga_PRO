@@ -1,3 +1,5 @@
+package IF;
+
 public class EntradaIf {
 
     public static void main (String[]args){
