@@ -10,10 +10,15 @@ public class Ejercicio7For {
 
         System.out.println("Introduce un dado: ");
         int dadoVeces = lectorTeclado.nextInt();
+        if (dadoVeces <= 0){
+            dadoVeces = 100;
+        }
 
-        for (){
+        System.out.printf("Lanzado el dado %d veces",dadoVeces);
 
-            if (){}
+        for (int i = 0; i <= dadoVeces+1; i++) {
+            int resultado = (int)( Math.random()*6)+1;
+            System.out.printf("Lanzamiento es: %d\n ",i,resultado);
         }
     }
 }
