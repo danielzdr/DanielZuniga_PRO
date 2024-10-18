@@ -14,19 +14,24 @@ public class Ejercicio5For {
         System.out.println("Ingrese el segundo numero del 0 al 5: ");
         int exponente= lectorTeclado.nextInt();
 
-           if (base==0 && exponente==0){
-               System.out.println("Error: 0^0 no esta definido");
+        int resultado =1;
 
-           } else{
+           if  (exponente==0){
+               System.out.println("El resultado de la potencia es 1 ");
 
-                   int resultado=1;
+           } else if (base==0) {
 
-               for(int i=0; i<=exponente;i++){
-                   resultado*=base;
+               System.out.println("No se calculan potenciass con base 0 ");
+
+           } else {
+               for (int i = 0; i < exponente; i++) {
+                   resultado = resultado *base;
                }
 
-               System.out.println(base +"^"+exponente+"="+resultado);
+               System.out.println("El resultado de la potencia es " +resultado);
            }
+
+
 
     }
 
