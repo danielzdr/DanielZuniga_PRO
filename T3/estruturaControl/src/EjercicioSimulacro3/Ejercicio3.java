@@ -11,11 +11,11 @@ public class Ejercicio3 {
         int pinUsuario=0;
         int opcion=0;
         do{
-            System.out.println("1.Ingresar dinero: ");
-            System.out.println("2.Sacar dinero: ");
-            System.out.println("3.Consultar el estado de la cuenta: ");
+            System.out.println("1.Ingresar dinero ");
+            System.out.println("2.Sacar dinero ");
+            System.out.println("3.Consultar el estado de la cuenta ");
             System.out.println("4.Salir ");
-            System.out.println("Introduce una opcion");
+            System.out.println("Introduce una opcion ");
             opcion= lectorTeclado.nextInt();
             switch (opcion){
                 case 1:
@@ -60,6 +60,10 @@ public class Ejercicio3 {
                     System.out.println("Opcion no valida");
             }
         }while(opcion!=4);
+
+
+
+
 
 
     }
