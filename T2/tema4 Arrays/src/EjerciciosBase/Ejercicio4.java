@@ -13,10 +13,10 @@ public class Ejercicio4 {
         int [] cuadrado= new int[20];
         int [] cubo= new int[20];
 
-        Random rand =new Random();
+        Random random =new Random();
 
         for (int i = 0; i < numero.length; i++) {
-            numero[i] = rand.nextInt(100)+1;
+            numero[i] = random.nextInt(100)+1;
             System.out.println("El numero es "+numero[i]);
             cuadrado[i]=(int)Math.pow(numero[i],2);
             cubo[i] = (int)Math.pow(numero[i],3 );
