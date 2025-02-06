@@ -10,7 +10,9 @@ public class Persona {
         this.dni = dni;
     }
 
-    public void mostrarDatos(){}
+    public String toString(){
+        return nombre +"(DNI: " +dni+ ")";
+    }
 
     public String getNombre() {
         return nombre;

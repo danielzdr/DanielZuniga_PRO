@@ -9,7 +9,7 @@ public class Libro extends Elemento{
 
 
     public Libro(String id , String titulo , String formato , Persona autor , int identificador , int tamanio , String ISBN , int nPaginas) {
-        super(id , titulo , formato , autor , identificador , tamanio);
+        super(id , titulo , formato , autor , tamanio);
         this.ISBN = ISBN;
         this.nPaginas = nPaginas;
     }

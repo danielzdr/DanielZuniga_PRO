@@ -13,7 +13,7 @@ public class Vehiculo {
     }
 
     public void mostrarDatos(){
-        System.out.println("Ejemplo.ListarMultimedia.model.Ejemplo.ListarMultimedia.model.Motor "+motor.getCv());
+        System.out.println("Ejemplo.ListarMultimedia.Trabajadores.model.Ejemplo.ListarMultimedia.Trabajadores.model.Motor "+motor.getCv());
         System.out.println("Bastidor "+bastidor);
     }
 

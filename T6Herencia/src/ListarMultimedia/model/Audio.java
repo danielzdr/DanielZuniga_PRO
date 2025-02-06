@@ -4,12 +4,14 @@ public class Audio extends Elemento {
     private String soporte;
     private double duracion;
 
-    public Audio() {
+    public Audio(String id , String titulo , String autor , double tamaño , String formato , double duracion , String soporte) {
     }
 
     public Audio(String id , String titulo , String formato , Persona autor , int identificador , int tamanio) {
-        super(id , titulo , formato , autor , identificador , tamanio);
+        super(id , titulo , formato , autor , tamanio);
     }
+
+
 
     @Override
     public void mostrarDatos() {
