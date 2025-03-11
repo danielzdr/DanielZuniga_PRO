@@ -2,8 +2,7 @@ package Trabajadores;
 
 import Trabajadores.Controller.Empresa;
 import Trabajadores.model.Asalariados;
-import Trabajadores.model.Autonomos;
-import Trabajadores.model.Jefe;
+
 
 import java.util.Scanner;
 
@@ -11,15 +10,14 @@ import java.util.Scanner;
 
 public class Entrada {
 
-    static Jefe jefe= new Jefe();
-     static Autonomos autonomos= new Autonomos();
-    static  Asalariados asalariados= new Asalariados();
-    static Scanner scanner= new Scanner(System.in);
+
+
+     Asalariados asalariados= new Asalariados();
+     static Scanner scanner= new Scanner(System.in);
     static Empresa empresa = new Empresa();
     public static void main(String[] args) {
 
 
-        Scanner scanner= new Scanner(System.in);
         boolean continuar=true;
         int opcion;
 
@@ -60,7 +58,7 @@ public class Entrada {
     private static void registrarTrabajador() {
         System.out.print("¿Qué tipo de trabajador desea registrar? (1: Asalariado, 2: Autónomo, 3: Jefe): ");
         int tipo = scanner.nextInt();
-        scanner.nextLine();  // Consumir el salto de línea
+        scanner.nextLine();
 
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
@@ -83,14 +81,13 @@ public class Entrada {
             int sueldo = scanner.nextInt();
             System.out.print("¿Está contratado? (true/false): ");
             boolean contratado = scanner.nextBoolean();
-            Autonomos autonomo = new Autonomos(nombre, apellido, dni, sueldo, contratado);
-            empresa.registrarTrabajador(autonomo);
+
+            empresa.registrarTrabajador();
         } else if (tipo == 3) {
             System.out.print("Acciones: ");
             int acciones = scanner.nextInt();
             System.out.print("Beneficio: ");
             int beneficio = scanner.nextInt();
-            Jefe jefe = new Jefe(nombre, apellido, dni, acciones, beneficio);
             empresa.registrarTrabajador(jefe);
         } else {
             System.out.println("Tipo de trabajador no válido.");

@@ -1,14 +1,11 @@
 package Trabajadores.Controller;
 
-import Trabajadores.model.Asalariados;
-import Trabajadores.model.Autonomos;
-import Trabajadores.model.Jefe;
-import Trabajadores.model.Trabajadores;
+import Trabajadores.model.*;
 
 import java.util.ArrayList;
 
 public class Empresa {
-    private ArrayList<Trabajadores> trabajadores;
+    private ArrayList<Trabajador> trabajadores;
     private Jefe jefe;
     private Asalariados asalariado;
     private Autonomos autonomo;
@@ -17,32 +14,27 @@ public class Empresa {
         trabajadores = new ArrayList<>();
     }
 
-    public boolean registrarTrabajador(Trabajadores trabajador) {
-        for (Trabajadores t : trabajadores) {
-            if (t.getDni().equals(trabajador.getDni())) {
-                System.out.println("Error: Ya existe un trabajador con el mismo dni");
-                return false;
-            }
-        }
-        if (trabajador instanceof Jefe && jefe != null) {
-            System.out.println("Error: Solo puede haber un jefe");
-            return false;
-        }
+    public void registrarTrabajador(Trabajador trabajador) {
+       if (trabajador instanceof Jefe){
 
-        if (trabajador instanceof Jefe) {
-            jefe = (Jefe) trabajador;
-        }
-        trabajadores.add(trabajador);
-        System.out.println("Trabajador agregado con exito");
-        return true;
+       }
 
     }
+    private boolean existeJefe(){
+        for (Persona persona: lista Persona){
+            if (persona instanceof  Jefe){
+                return true;
+            }
+            return false;
+        }
+    }
 
-    public void listarTrabajadores(String tipo) {
+
+    public void listarTrabajadores(Trabajador trabajador) {
         for (Trabajadores t : trabajadores) {
-            if (tipo.equals("todos") ||
-                    (tipo.equals("asalariados") && t instanceof Asalariados) ||
-                    (tipo.equals("autonomos") && t instanceof Autonomos)) {
+            if (trabajadores instanceof Jefe ||
+                    (tipo.equals("Asalariados") && (t instanceof Asalariados)) ||
+                    (tipo.equals("Autonomos") && (t instanceof Autonomos))) {
                 t.mostrarDatos();
             }
         }
@@ -58,16 +50,16 @@ public class Empresa {
         System.out.println("No se encontro ningun dni");
     }
 
-    public boolean despedirTrabajador(String dni) {
+    public boolean despedirTrabajador(String dniJefe, String dniTrabajador) {
         if (jefe == null) {
             System.out.println("No hay jefe en la empresa.");
             return false;
         }
 
-        for (Trabajadores item : trabajadores) {
-            if (item.getDni().equals(dni)) {
-                jefe.despedir(item);
-                trabajadores.remove(item);
+        for (Trabajadores t : trabajadores) {
+            if (t.getDni().equals(dni)) {
+                jefe.despedir(t);
+                trabajadores.remove(t);
                 return true;
             }
         }

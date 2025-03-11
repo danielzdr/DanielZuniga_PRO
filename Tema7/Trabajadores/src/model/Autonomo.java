@@ -1,13 +1,13 @@
-package Trabajadores.model;
+package model;
 
-public abstract class Autonomos extends Trabajador implements Sindicador,Beneficio{
+public abstract class Autonomo extends  Trabajador implements Sindicador{
     private int cuotaSS;
 
-    public Autonomos() {
+    public Autonomo() {
     }
 
 
-    public Autonomos(String nombre , String apellido , int nSsocial , double salario , int cuotaSS) {
+    public Autonomo(String nombre , String apellido , int nSsocial , double salario , int cuotaSS) {
         super(nombre , apellido , nSsocial , salario);
         this.cuotaSS = cuotaSS;
     }

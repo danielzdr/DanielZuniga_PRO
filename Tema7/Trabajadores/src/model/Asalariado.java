@@ -1,21 +1,20 @@
-package Trabajadores.model;
+package model;
 
-public class Asalariados extends Trabajador implements Empleador, Sindicador{
-
+public abstract class Asalariado extends  Trabajador implements Empleador,Sindicador{
     private double retencion;
     private  int nPagas;
 
 
-    public Asalariados() {
+    public Asalariado() {
     }
 
-    public Asalariados(String nombre , String apellido , int nSsocial , double salario , double retencion , int nPagas) {
+    public Asalariado(String nombre , String apellido , int nSsocial , double salario , double retencion , int nPagas) {
         super(nombre , apellido , nSsocial , salario);
         this.retencion = retencion;
         this.nPagas = nPagas;
     }
 
-    public Asalariados(String nombre , String apellido , int nSsocial , double salario) {
+    public Asalariado(String nombre , String apellido , int nSsocial , double salario) {
         super(nombre , apellido , nSsocial , salario);
         this.nPagas=12;
         this.retencion=0.02;
