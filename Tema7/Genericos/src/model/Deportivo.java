@@ -1,4 +1,4 @@
 package model;
 
-public class Deportivo extends Coche{
+public class Deportivo extends Coche implements Gestionable{
 }

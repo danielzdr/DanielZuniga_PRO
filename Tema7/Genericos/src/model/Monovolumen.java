@@ -1,4 +1,4 @@
 package model;
 
-public class Monovolumen extends Coche{
+public class Monovolumen extends Coche implements Gestionable{
 }
