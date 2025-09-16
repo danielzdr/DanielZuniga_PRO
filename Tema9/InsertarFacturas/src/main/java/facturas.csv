@@ -1,0 +1,4 @@
+numero,nombre,apellido,direccion,email,productos,precio
+F001,Daniel,Zuñiga,Calle Mayor 123,daniel.zuniga@mail.com,"Camisa x2, Pantalón x1",59.99
+F002,Esteban,Martin,Av. Libertad 456,esteban.martin@mail.com,"Zapatos x1, Bufanda x1",89.5
+F003,Hugo,Alberto,Calle 12 No. 45,hugo.alberto@mail.com,"Chaqueta x1, Guantes x2",120.0

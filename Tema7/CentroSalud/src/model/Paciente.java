@@ -1,9 +1,9 @@
 package model;
 
-import java.io.FilePermissionCollection;
+
 
 public class Paciente extends Persona{
-    public FilePermissionCollection citas;
+    public Cita citas;
     private int numeroSS;
     private String dolencia;
 

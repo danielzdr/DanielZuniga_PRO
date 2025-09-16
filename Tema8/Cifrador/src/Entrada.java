@@ -4,8 +4,8 @@ public class Entrada {
 
 
     OperacionesFicheros operacionesFicheros= new OperacionesFicheros();
-    operacionesFicheros.cifrarMensaje("Este mensaje es el que vamos a cifrar",3,"src/recursos/cifrado.txt");
-   // operacionesFicheros.descifrarMensaje(3,"src/recursos/cifrado.txt");
-
+   //operacionesFicheros.cifrarMensaje("Naiara es la novia mas guapa y hermosa del mundo mundial",3,"src/recursos/cifrado_codigo.txt");
+    //operacionesFicheros.descifrarMensaje("src/recursos/cifrado_codigo.txt",3);
+    operacionesFicheros.descifrarMensajeCodigo(3,"src/recursos/cifrado_codigo.txt");
     }
 }

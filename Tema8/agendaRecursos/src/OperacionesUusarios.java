@@ -39,9 +39,9 @@ public class OperacionesUusarios {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("Ficheo no encontrado");
+            System.out.println("Fichero no encontrado");
         } catch (IOException e) {
-            System.out.println("Fallo de I/O");
+            System.out.println("Fallo de entrada / salida");
         } finally {
             try {
                 bufferedReader.close();

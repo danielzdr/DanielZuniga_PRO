@@ -1,6 +1,7 @@
 import controller.CentroSalud;
 import model.*;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Entrada {
@@ -8,6 +9,7 @@ public class Entrada {
 
         Scanner scanner = new Scanner(System.in);
         CentroSalud centro = new CentroSalud();
+        Centro centros= new Centro();
 
         int opcion;
         do {
@@ -86,7 +88,7 @@ public class Entrada {
                     String nssCita = scanner.nextLine();
                     System.out.print("Ingrese la especialidad: ");
                     String especialidadCita = scanner.nextLine();
-                    System.out.print("Ingrese la fecha de la cita (YYYY-MM-DD HH:MM): ");
+                    System.out.print("Ingrese la fecha de la cita : ");
                     String fechaCita = scanner.nextLine();
                     centro.pedirCita(nssCita, Especialidad.valueOf(especialidadCita) , fechaCita);
                     break;
@@ -96,8 +98,8 @@ public class Entrada {
                     System.out.print("Ingrese el NSS del paciente: ");
                     String nssPacienteConsulta = scanner.nextLine();
                     Paciente pacienteConsulta = null;
-                    for (Paciente p : centro.getListaPacientes ){
-                        if (p.nss.equals(nssPacienteConsulta)) {
+                    for (Paciente p : centros.getListaPaciente()){
+                        if (Objects.equals(p.getNumeroSS() , nssPacienteConsulta)) {
                             pacienteConsulta = p;
                             break;
                         }
@@ -114,8 +116,8 @@ public class Entrada {
                     System.out.print("Ingrese el nombre del doctor: ");
                     String nombreDoctorConsulta = scanner.nextLine();
                     Doctor doctorConsulta = null;
-                    for (Doctor d : centro.getListaDoctor) {
-                        if (d.nombre.equals(nombreDoctorConsulta)) {
+                    for (Doctor d : centros.getListaDoctor()) {
+                        if (d.getNombre().equals(nombreDoctorConsulta)) {
                             doctorConsulta = d;
                             break;
                         }

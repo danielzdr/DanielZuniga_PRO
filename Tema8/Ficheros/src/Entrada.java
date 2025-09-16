@@ -1,14 +1,15 @@
+import java.io.File;
 import java.io.IOException;
 
 public class Entrada {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         OperacionesFichero operacionesFichero= new OperacionesFichero();
-        /*operacionesFichero.leerInformacion(new File("C:\\1ºDAM\\Programacion"));*/
+        //operacionesFichero.leerInformacion(new File("C:\\1ºDAM\\Programacion"));
 
         /*operacionesFichero.recorrerDirectorio(new File("C:\\1ºDAM\\Programacion"));*/
         /*operacionesFichero.escribirFichero("src/recursos/lectura/ejemplo_escritura.txt");*/
-        //operacionesFichero.datosPersonales("src/recursos/lectura/datos.txt");
-        operacionesFichero.escrituraFicheroCompleta("src/recursos/lectura/ejemplo_lectura_codigo.txt");
+        operacionesFichero.datosPersonales("src/recursos/lectura/datos.txt");
+        //operacionesFichero.escrituraFicheroCompleta("src/recursos/lectura/ejemplo_lectura_codigo.txt");
 
         //Crear un agenda peristida en fichero
         //Crea un objeto en una clase llamada Usuarios (nombre,apellido,correo,telefono)

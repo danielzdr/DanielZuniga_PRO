@@ -26,7 +26,7 @@ public class OperacionesFicheros {
 
     }
 
-    public void descifrarMensaje(int fase, String path){
+    public void descifrarMensaje( String path,int fase){
         File file = new File(path);
         FileReader fileReader= null;//lee caracter a caracter
 
@@ -64,7 +64,7 @@ public class OperacionesFicheros {
                 String[] codigos= lectura.split(" ");
                 for (String codigo:codigos){
                     int codigoDescifrado = Integer.valueOf(codigo)/fase;
-                    System.out.println((char) codigoDescifrado);
+                    System.out.print((char) codigoDescifrado);
                 }
 
             }

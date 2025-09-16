@@ -28,6 +28,6 @@ public class Digestivo extends Doctor{
 
     @Override
     public void realizarAccion() {
-
+        System.out.println("El paciente tiene citas en el especialista digestivo");
     }
 }

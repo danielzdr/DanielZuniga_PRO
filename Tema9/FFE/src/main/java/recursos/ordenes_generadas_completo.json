@@ -1,0 +1,442 @@
+[
+  {
+    "code": "25001001",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1000 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1000",
+    "total": 20.0,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:00:00.000Z",
+      "name": "1000 uds. de Flyer",
+      "amount": "1000",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 1.5,
+          "costs": {
+            "impresion": {
+              "total": 15.0
+            },
+            "papel": {
+              "total": 2.0
+            },
+            "corte": {
+              "total": 3.0
+            }
+          },
+          "total": 20.0
+        }
+      ],
+      "total": 20.0
+    },
+    "comment": "probando en ot"
+  },
+  {
+    "code": "25001002",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1100 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1100",
+    "total": 23.5,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:01:00.000Z",
+      "name": "1100 uds. de Flyer",
+      "amount": "1100",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 1.7,
+          "costs": {
+            "impresion": {
+              "total": 17.5
+            },
+            "papel": {
+              "total": 2.6
+            },
+            "corte": {
+              "total": 3.4
+            }
+          },
+          "total": 23.5
+        }
+      ],
+      "total": 23.5
+    },
+    "comment": "probando en ot"
+  },
+  {
+    "code": "25001003",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1200 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1200",
+    "total": 27.0,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:02:00.000Z",
+      "name": "1200 uds. de Flyer",
+      "amount": "1200",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 1.9,
+          "costs": {
+            "impresion": {
+              "total": 20.0
+            },
+            "papel": {
+              "total": 3.2
+            },
+            "corte": {
+              "total": 3.8
+            }
+          },
+          "total": 27.0
+        }
+      ],
+      "total": 27.0
+    },
+    "comment": "probando en ot"
+  },
+  {
+    "code": "25001004",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1300 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1300",
+    "total": 30.5,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:03:00.000Z",
+      "name": "1300 uds. de Flyer",
+      "amount": "1300",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 2.1,
+          "costs": {
+            "impresion": {
+              "total": 22.5
+            },
+            "papel": {
+              "total": 3.8
+            },
+            "corte": {
+              "total": 4.2
+            }
+          },
+          "total": 30.5
+        }
+      ],
+      "total": 30.5
+    },
+    "comment": "probando en ot"
+  },
+  {
+    "code": "25001005",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1400 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1400",
+    "total": 34.0,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:04:00.000Z",
+      "name": "1400 uds. de Flyer",
+      "amount": "1400",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 2.3,
+          "costs": {
+            "impresion": {
+              "total": 25.0
+            },
+            "papel": {
+              "total": 4.4
+            },
+            "corte": {
+              "total": 4.6
+            }
+          },
+          "total": 34.0
+        }
+      ],
+      "total": 34.0
+    },
+    "comment": "probando en ot"
+  },
+  {
+    "code": "25001006",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1500 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1500",
+    "total": 37.5,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:05:00.000Z",
+      "name": "1500 uds. de Flyer",
+      "amount": "1500",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 2.5,
+          "costs": {
+            "impresion": {
+              "total": 27.5
+            },
+            "papel": {
+              "total": 5.0
+            },
+            "corte": {
+              "total": 5.0
+            }
+          },
+          "total": 37.5
+        }
+      ],
+      "total": 37.5
+    },
+    "comment": "comentario general"
+  },
+  {
+    "code": "25001007",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1600 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1600",
+    "total": 41.0,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:06:00.000Z",
+      "name": "1600 uds. de Flyer",
+      "amount": "1600",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 2.7,
+          "costs": {
+            "impresion": {
+              "total": 30.0
+            },
+            "papel": {
+              "total": 5.6
+            },
+            "corte": {
+              "total": 5.4
+            }
+          },
+          "total": 41.0
+        }
+      ],
+      "total": 41.0
+    },
+    "comment": "comentario general"
+  },
+  {
+    "code": "25001008",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1700 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1700",
+    "total": 44.5,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:07:00.000Z",
+      "name": "1700 uds. de Flyer",
+      "amount": "1700",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 2.9,
+          "costs": {
+            "impresion": {
+              "total": 32.5
+            },
+            "papel": {
+              "total": 6.2
+            },
+            "corte": {
+              "total": 5.8
+            }
+          },
+          "total": 44.5
+        }
+      ],
+      "total": 44.5
+    },
+    "comment": "comentario general"
+  },
+  {
+    "code": "25001009",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1800 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1800",
+    "total": 48.0,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:08:00.000Z",
+      "name": "1800 uds. de Flyer",
+      "amount": "1800",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 3.1,
+          "costs": {
+            "impresion": {
+              "total": 35.0
+            },
+            "papel": {
+              "total": 6.8
+            },
+            "corte": {
+              "total": 6.2
+            }
+          },
+          "total": 48.0
+        }
+      ],
+      "total": 48.0
+    },
+    "comment": "comentario general"
+  },
+  {
+    "code": "25001010",
+    "client": "673c9d0d9018ea66f84e1e6d",
+    "clientName": "CLIENTES VARIOS",
+    "description": "1900 uds. de Flyer para CLIENTES VARIOS",
+    "units": "1900",
+    "total": 51.5,
+    "quote": {
+      "checked": true,
+      "initialDate": "2025-04-15T10:09:00.000Z",
+      "name": "1900 uds. de Flyer",
+      "amount": "1900",
+      "product": "64244f8c9344043defc78177",
+      "form": {
+        "elements": [
+          {
+            "label": "Flyer",
+            "processes": [],
+            "form": []
+          }
+        ]
+      },
+      "elements": [
+        {
+          "label": "Flyer",
+          "weight": 3.3,
+          "costs": {
+            "impresion": {
+              "total": 37.5
+            },
+            "papel": {
+              "total": 7.4
+            },
+            "corte": {
+              "total": 6.6
+            }
+          },
+          "total": 51.5
+        }
+      ],
+      "total": 51.5
+    },
+    "comment": "comentario general"
+  }
+]

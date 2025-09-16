@@ -66,12 +66,12 @@ public class OperacionesFichero {
             int edad = scanner.nextInt();
             System.out.println("Introduce el mensaje");
             String mensaje= bufferedReader.readLine();
-            fileWriter.write("nombre" +nombre);
-            fileWriter.write("Apellidos " +apellidos);
-            fileWriter.write("Edad " +edad);
-            fileWriter.write("Mensaje " +mensaje);
+            fileWriter.write((String) "nombre" +nombre);
+            fileWriter.write((String) "Apellidos " +apellidos);
+            fileWriter.write((String) "Edad " +edad);
+            fileWriter.write((String) "Mensaje " +mensaje);
         } catch (IOException e) {
-            System.out.println("Error en al escritura");
+            System.out.println("Error de entrada / salida");
         }finally {
             try {
                 fileWriter.close();

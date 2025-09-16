@@ -84,8 +84,6 @@ public class CentroSalud <T extends Doctor>{
 
         Cita cita = new Cita(fecha, especialidad, doctor, paciente);
         citas.add(cita);
-        paciente.citas.add(cita);
-        doctor.citas.add(cita);
         System.out.println("Cita agendada para " + paciente + " con " + doctor + " el " + fecha);
     }
 }
