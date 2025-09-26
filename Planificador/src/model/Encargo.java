@@ -1,6 +1,6 @@
 package model;
 
-public class Encargo {
+public class Encargo implements ElementoPlanificable{
     private String descripcion;
     private boolean completa;
     private int id;
@@ -18,6 +18,8 @@ public class Encargo {
         return descripcion;
     }
 
+
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -26,9 +28,8 @@ public class Encargo {
         return completa;
     }
 
-    public boolean setCompleta(boolean completa) {
+    public void setCompleta(boolean completa) {
         this.completa = completa;
-        return completa;
     }
 
     public int getId() {
