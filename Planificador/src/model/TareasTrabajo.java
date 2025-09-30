@@ -12,8 +12,8 @@ public class TareasTrabajo extends Tarea{
         this.proyecto = proyecto;
     }
 
-    public TareasTrabajo(int id , String titulo , String descripcion , Date date , boolean completada , String proyecto) {
-        super(id , titulo , descripcion , date , completada);
+    public TareasTrabajo(int id , String titulo , String descripcion , Date date , boolean completada , Prioridad prioridad, String proyecto) {
+        super(id , titulo , descripcion , date , completada,prioridad);
         this.proyecto = proyecto;
     }
 

@@ -15,8 +15,8 @@ private ArrayList<String> subtareas;
         this.subtareas = subtareas;
     }
 
-    public TareasOcio(int id , String titulo , String descripcion , Date date , boolean completada , String ubicacion , ArrayList<String> subtareas) {
-        super(id , titulo , descripcion , date , completada);
+    public TareasOcio(int id , String titulo , String descripcion , Date date , boolean completada , Prioridad prioridad, String ubicacion , ArrayList<String> subtareas) {
+        super(id , titulo , descripcion , date , completada,prioridad);
         this.ubicacion = ubicacion;
         this.subtareas = subtareas;
     }

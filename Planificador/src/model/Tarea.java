@@ -8,16 +8,26 @@ public class Tarea {
     private String descripcion;
     private Date date;
     private boolean completada;
+    protected Prioridad prioridad;
 
     public Tarea() {
     }
 
-    public Tarea(int id , String titulo , String descripcion , Date date , boolean completada) {
+    public Tarea(int id , String titulo , String descripcion , Date date , boolean completada, Prioridad prioridad) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.date = date;
         this.completada = completada;
+        this.prioridad=prioridad;
+    }
+
+    public Prioridad getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(Prioridad prioridad) {
+        this.prioridad = prioridad;
     }
 
     public int getId() {
