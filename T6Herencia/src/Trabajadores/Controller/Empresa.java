@@ -21,7 +21,7 @@ public class Empresa {
 
     }
     private boolean existeJefe(){
-        for (Persona persona: lista Persona){
+        for (Persona persona: listaPersona){
             if (persona instanceof  Jefe){
                 return true;
             }

@@ -24,7 +24,7 @@ public class Entrada {
             System.out.println("7. Salir del programa");
             switch (opcion){
                 case 1:
-                    planificador.registrarTarea(new Encargo("Voy a barrer mi casa", true, 1));
+                    planificador.registrarTarea(new Encargo("Voy a barrer mi casa", true, 11));
                     planificador.registrarTarea(new Encargo("Vamos a limpiar el coche", true, 2));
                     planificador.registrarTarea(new Encargo("Voy a pasear a los perritos", false, 3));
                     break;

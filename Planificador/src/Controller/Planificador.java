@@ -1,10 +1,5 @@
 package Controller;
-
-
-
 import model.Encargo;
-import model.Tarea;
-
 import java.util.ArrayList;
 
 public class Planificador {
