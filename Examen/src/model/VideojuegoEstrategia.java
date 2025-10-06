@@ -7,8 +7,8 @@ public class VideojuegoEstrategia extends Videojuego implements Descargable{
     public VideojuegoEstrategia() {
     }
 
-    public VideojuegoEstrategia(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precio , int complejidad , int duracioPartida , double tamanioGB) {
-        super(titulo , desarrollador , clasificacionEdad , anoLanzamiento , precio);
+    public VideojuegoEstrategia(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precioBase , int complejidad , int duracioPartida , double tamanioGB) {
+        super(titulo , desarrollador , clasificacionEdad , anoLanzamiento , precioBase);
         this.complejidad = complejidad;
         this.duracioPartida = duracioPartida;
         this.tamanioGB = tamanioGB;
@@ -30,12 +30,6 @@ public class VideojuegoEstrategia extends Videojuego implements Descargable{
         this.duracioPartida = duracioPartida;
     }
 
-    @Override
-    public int calcularPrecioFinal(int precio) {
-
-
-        return precio;
-    }
 
      public double getTamanioGB() {
          return tamanioGB;
@@ -45,22 +39,40 @@ public class VideojuegoEstrategia extends Videojuego implements Descargable{
          this.tamanioGB = tamanioGB;
      }
 
-     @Override
-     public int calcularTiempoDescarga(double vel) {
-         return 0;
-     }
+    @Override
+    public double calcularPrecioFinal() {
+        double precioFinal = getPrecioBase();
 
-     @Override
-     public double obtenerTamanioGB() {
-         return 0;
-     }
+        if (complejidad > 5) {
+            precioFinal += 0.5;
+        }
+        if (duracioPartida > 60) {
+            precioFinal += 0.3;
+        }
 
-     @Override
+        return precioFinal;
+    }
+
+    @Override
+    public int calcularTiempoDescarga(double velocidadMBps) {
+        if (velocidadMBps <= 0) {
+            return -1;
+        }
+
+        return (int) (tamanioGB * 1024 / velocidadMBps);
+    }
+
+    @Override
+    public double obtenerTamanioGB() {
+        return tamanioGB;
+    }
+
+    @Override
     public String toString() {
-        return super.toString()+"VideojuegoEstrategia{" +
+        return super.toString() + " VideojuegoEstrategia{" +
                 "complejidad=" + complejidad +
-                ", duracioPartida=" + duracioPartida +
-                ", TamañoGB =" +tamanioGB +
+                ", duracionPartida=" + duracioPartida +
+                ", tamanioGB=" + tamanioGB +
                 '}';
     }
 }

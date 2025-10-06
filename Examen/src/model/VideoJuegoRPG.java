@@ -1,26 +1,29 @@
 package model;
 
-public class VideoJuegoRPG extends Videojuego implements Descargable{
-    private boolean mundoAierto;
+public class VideoJuegoRPG extends Videojuego implements Descargable {
+    private boolean mundoAbierto;
     private int horasHistoriaPrincipal;
     private double tamanioGB;
+    private boolean modoMultijugador; // agregado para que compile
 
     public VideoJuegoRPG() {
     }
 
-    public VideoJuegoRPG(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precio , boolean mundoAierto , int horasHistoriaPrincipal , double tamanioGB) {
-        super(titulo , desarrollador , clasificacionEdad , anoLanzamiento , precio);
-        this.mundoAierto = mundoAierto;
+    public VideoJuegoRPG(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precioBase ,
+                         boolean mundoAbierto , int horasHistoriaPrincipal , double tamanioGB , boolean modoMultijugador) {
+        super(titulo , desarrollador , clasificacionEdad , anoLanzamiento , precioBase);
+        this.mundoAbierto = mundoAbierto;
         this.horasHistoriaPrincipal = horasHistoriaPrincipal;
         this.tamanioGB = tamanioGB;
+        this.modoMultijugador = modoMultijugador;
     }
 
-    public boolean isMundoAierto() {
-        return mundoAierto;
+    public boolean isMundoAbierto() {
+        return mundoAbierto;
     }
 
-    public void setMundoAierto(boolean mundoAierto) {
-        this.mundoAierto = mundoAierto;
+    public void setMundoAbierto(boolean mundoAbierto) {
+        this.mundoAbierto = mundoAbierto;
     }
 
     public int getHorasHistoriaPrincipal() {
@@ -39,38 +42,52 @@ public class VideoJuegoRPG extends Videojuego implements Descargable{
         this.tamanioGB = tamanioGB;
     }
 
+    public boolean isModoMultijugador() {
+        return modoMultijugador;
+    }
 
-
-    @Override
-    public int calcularPrecioFinal(int precio) {
-        boolean hayMundoAbierto=true;
-        if (hayMundoAbierto== mundoAierto){
-            precio+=0.15;
-        } else if (horasHistoriaPrincipal==10) {
-            precio+=0.2;
-        }else {
-            System.out.println("No ha sido posible realizar el cambio");
-        }
-
-        return precio;
+    public void setModoMultijugador(boolean modoMultijugador) {
+        this.modoMultijugador = modoMultijugador;
     }
 
     @Override
-    public int calcularTiempoDescarga(double vel) {
-        return 0;
+    public double calcularPrecioFinal() {
+        double precioFinal = getPrecioBase();
+
+        if (mundoAbierto) {
+            precioFinal += 1.0;
+        }
+        if (horasHistoriaPrincipal > 50) {
+            precioFinal += 0.5;
+        }
+        if (modoMultijugador) {
+            precioFinal += 0.3;
+        }
+
+        return precioFinal;
+    }
+
+    @Override
+    public int calcularTiempoDescarga(double velocidadMBps) {
+        if (velocidadMBps <= 0) {
+            return -1;
+        }
+        return (int) (tamanioGB * 1024 / velocidadMBps);
     }
 
     @Override
     public double obtenerTamanioGB() {
-        return 0;
+        return tamanioGB;
     }
 
     @Override
     public String toString() {
-        return super.toString()+"VideoJuegoRPG{" +
-                "mundoAierto=" + mundoAierto +
+        return super.toString() +
+                " VideoJuegoRPG{" +
+                "mundoAbierto=" + mundoAbierto +
                 ", horasHistoriaPrincipal=" + horasHistoriaPrincipal +
-                ",TamañoGb= "+ tamanioGB +
+                ", tamanioGB=" + tamanioGB +
+                ", modoMultijugador=" + modoMultijugador +
                 '}';
     }
 }

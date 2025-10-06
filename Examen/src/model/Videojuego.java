@@ -1,19 +1,19 @@
 package model;
 
-public class Videojuego {
+public abstract class Videojuego {
     private String titulo, desarrollador, clasificacionEdad;
     private int anoLanzamiento;
-    private double precio;
+    private double precioBase;
 
     public Videojuego() {
     }
 
-    public Videojuego(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precio) {
+    public Videojuego(String titulo , String desarrollador , String clasificacionEdad , int anoLanzamiento , double precioBase) {
         this.titulo = titulo;
         this.desarrollador = desarrollador;
         this.clasificacionEdad = clasificacionEdad;
         this.anoLanzamiento = anoLanzamiento;
-        this.precio = precio;
+        this.precioBase = precioBase;
     }
 
     public String getTitulo() {
@@ -48,18 +48,20 @@ public class Videojuego {
         this.anoLanzamiento = anoLanzamiento;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrecioBase() {
+        return precioBase;
     }
 
-    public void setPrecio() {
-        this.precio = precio;
+    public void setPrecioBase() {
+        this.precioBase = precioBase;
     }
 
     public static int calcularPrecioFinal(int precio){
 
         return precio;
     }
+
+   
 
     @Override
     public String toString() {
@@ -68,10 +70,13 @@ public class Videojuego {
                 ", desarrolldor='" + desarrollador + '\'' +
                 ", clasificacionEdad='" + clasificacionEdad + '\'' +
                 ", anoLanzamiento=" + anoLanzamiento +
-                ", precio=" + precio +
+                ", precio=" + precioBase +
                 '}';
     }
 
 
+    public double calcularPrecioFinal() {
+        return precioBase;
+    }
 }
 
