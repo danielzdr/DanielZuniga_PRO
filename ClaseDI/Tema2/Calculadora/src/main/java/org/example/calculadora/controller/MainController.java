@@ -244,8 +244,7 @@ public class MainController implements Initializable {
             }
         }
     }
-
-    // Calcula una operación básica
+    
     private double calcular(double a, double b, String operador) {
         switch (operador) {
             case "+":
@@ -263,7 +262,7 @@ public class MainController implements Initializable {
         }
     }
 
-    // Formatea el número para mostrar sin notación científica
+
     private String formatear(double valor) {
         if (valor == (long) valor) {
             return String.format("%d", (long) valor);
