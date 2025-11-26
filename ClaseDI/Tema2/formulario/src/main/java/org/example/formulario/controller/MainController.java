@@ -97,7 +97,31 @@ public class MainController implements Initializable {
 
     }
 
+    private void instancias() {
+        usuarioDaoImp=new UsuarioDaoImp();
+        grupoGenero= new ToggleGroup();
+        grupoGenero.getToggles().addAll(masculino,femenino);
+        listaEdades= FXCollections.observableArrayList();
+        listaUsuarios=FXCollections.observableArrayList(usuarioDaoImp.obtenerUsuarios());
+        for (int i = 18; i <91 ; i++) {
+            listaEdades.add(i);
+        }
+    }
 
+    private void initGui() {
+        comboEdad.setItems(listaEdades);
+        listaVisual.setItems(listaUsuarios);
+        botonAgregar.setDisable(!checkBox.isSelected());//pone el checkbox en true cuando lo niegas
+        if (botonListar.isSelected()){
+            panelGeneral.setRight(parteDerecha);
+
+        }else {
+            panelGeneral.setRight(null);
+        }
+        if (menuLista.isDisable()){
+            panelGeneral.setRight(parteDerecha);
+        }
+    }
 
     private void acciones() {
         menuPrincipal.setOnAction(new ManejoActions());
@@ -117,41 +141,12 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue , Boolean aBoolean , Boolean t1) {
                 if (t1){
-
                     panelGeneral.setRight(parteDerecha);
                 }else {
                     panelGeneral.setRight(null);
                 }
             }
         });
-    }
-
-    private void instancias() {
-        usuarioDaoImp=new UsuarioDaoImp();
-        grupoGenero= new ToggleGroup();
-        grupoGenero.getToggles().addAll(masculino,femenino);
-        listaEdades= FXCollections.observableArrayList();
-        listaUsuarios=FXCollections.observableArrayList(usuarioDaoImp.obtenerUsuarios());
-        for (int i = 18; i <91 ; i++) {
-            listaEdades.add(i);
-        }
-
-
-    }
-
-    private void initGui() {
-        comboEdad.setItems(listaEdades);
-        listaVisual.setItems(listaUsuarios);
-        botonAgregar.setDisable(!checkBox.isSelected());//pone el checkbox en true cuando lo niegas
-        if (botonListar.isSelected()){
-            panelGeneral.setRight(parteDerecha);
-
-        }else {
-            panelGeneral.setRight(null);
-        }
-        if (menuLista.isDisable()){
-            panelGeneral.setRight(parteDerecha);
-        }
     }
 
 

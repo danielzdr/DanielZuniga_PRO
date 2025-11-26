@@ -8,6 +8,6 @@ public interface SchemaDB {
     String COL_NAME="nombre";
     String COL_TELF="telefono";
     String COL_PIZZA="pizza";
-    String COL_TAMAÑO="tamaño";
+    String COL_TAMANIO="tamaño";
     String COL_PRECIO="precio";
 }

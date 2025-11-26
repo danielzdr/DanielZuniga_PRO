@@ -1,4 +1,4 @@
-package org.example.gestionpizzeria.db;
+package org.example.examenjavafx.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,8 +19,7 @@ public class DBConnection {
         String user = "root";
         String pass= "RISA";
         try {
-            connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pizzeria",user, pass);
-            //connection= DriverManager.getConnection(String.format("jdbc:mysql://%s %s %s",SchemaDB.URL,SchemaDB.PORT,SchemaDB.DB_NAME),user,pass);
+            connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/tienda",user, pass);
         } catch (SQLException e) {
             System.out.println("Error en la conexion de base de datos");
             System.out.println(e.getMessage());
