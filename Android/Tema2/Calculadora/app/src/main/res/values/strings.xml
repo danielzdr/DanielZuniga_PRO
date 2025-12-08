@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+        <string name="Cero">0</string>
+        <string name="boton_reset">AC</string>
+        <string name="boton_percentage">%</string>
+        <string name="boton_borrar">C</string>
+        <string name="boton_division">/</string>
+        <string name="boton_multi">×</string>
+        <string name="boton_resta">-</string>
+        <string name="boton_suma">+</string>
+        <string name="boton_igual">=</string>
+        <string name="boton_punto">.</string>
+        <string name="boton_negativo">+/-</string>
+        <string name="boton_cero">0</string>
+        <string name="boton_uno">1</string>
+        <string name="boton_dos">2</string>
+        <string name="boton_tres">3</string>
+        <string name="boton_cuatro">4</string>
+        <string name="boton_cinco">5</string>
+        <string name="boton_seis">6</string>
+        <string name="boton_siete">7</string>
+        <string name="boton_ocho">8</string>
+        <string name="boton_nueve">9</string>
+        <string name="boton_pi">PI</string>
+        <string name="boton_raiz">Raiz2</string>
+        <string name="boton_log">log</string>
+        <string name="boton_cos">cos</string>
+        <string name="boton_e">e</string>
+    </resources>

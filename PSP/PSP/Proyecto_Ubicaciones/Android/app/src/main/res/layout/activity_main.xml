@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Campo para poner el Device ID -->
+        <EditText
+            android:id="@+id/etDeviceId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Device ID" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar ubicación predefinida:"
+            android:paddingTop="16dp"
+            android:textStyle="bold"/>
+
+        <!-- Botones para enviar ubicación -->
+        <Button
+            android:id="@+id/btnCES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CES Juan Pablo II" />
+
+        <Button
+            android:id="@+id/btnEstocolmo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calle Estocolmo" />
+
+        <Button
+            android:id="@+id/btnPraga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calle Praga" />
+
+    </LinearLayout>
+</ScrollView>

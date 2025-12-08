@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="ligth">#d3d3d3</color>
+    <color name="grisclaro">#9b9b9b</color>
+    <color name="marronClaro">#763c28</color>
+    <color name="marronRoj">#800000</color>
+</resources>

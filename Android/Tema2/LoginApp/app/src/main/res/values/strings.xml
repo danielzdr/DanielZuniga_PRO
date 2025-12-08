@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="text_login">Login</string>
+    <string name="text_data">Error de datos</string>
+    <string-array name="plataformas">
+        <item>GitHub</item>
+        <item>Facebook</item>
+        <item>Google</item>
+    </string-array>
+</resources>

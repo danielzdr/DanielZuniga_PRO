@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tienda</string>
+    <string-array name="categorias">
+        <item>Tecnologia</item>
+        <item>Muebles</item>
+        <item>Ropa</item>
+        <item>Todos</item>
+    </string-array>
+</resources>

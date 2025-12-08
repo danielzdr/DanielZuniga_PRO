@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MiPrimeraApp" parent="Theme.MiPrimeraApp">
+        <!-- Customize your light theme here. -->
+        <item name="android:colorPrimary">@color/purple_500</item>
+        <item name="android:colorPrimaryDark">@color/purple_700</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/white</item>
+    </style>
+
+    <style name="Theme.MiPrimeraApp" parent="Base.Theme.MiPrimeraApp" />
+</resources>

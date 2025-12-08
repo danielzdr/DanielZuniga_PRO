@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="kotlinx-coroutines-core-jvm-1.9.0" type="kotlin.js">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/kotlinx-coroutines-core-jvm-1.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
