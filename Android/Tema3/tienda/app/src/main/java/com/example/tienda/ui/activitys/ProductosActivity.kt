@@ -2,14 +2,15 @@ package com.example.tienda.ui.activitys
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tienda.adapter.AdapterCarrito
+import com.example.tienda.adapter.AdapterProducto
 import com.example.tienda.databinding.ActivityProductosBinding
 import com.example.tienda.dataset.DataSet
+import com.example.tienda.ui.dialogs.DialogoProducto
 
-class ProductosActivity : AppCompatActivity() {
+class ProductosActivity : AppCompatActivity(), AdapterProducto.OnProductoCarritoListener{
 
     private lateinit var binding: ActivityProductosBinding
     private lateinit var adapterCarrito: AdapterCarrito
@@ -25,7 +26,8 @@ class ProductosActivity : AppCompatActivity() {
         // Inicializar RecyclerView
         adapterCarrito = AdapterCarrito(DataSet.Companion.listaCarrito)
 
-        binding.recyclerCarrito.layoutManager = LinearLayoutManager(this)
+        binding.recyclerCarrito.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.VERTICAL,false)
         binding.recyclerCarrito.adapter = adapterCarrito
 
         calcularTotal()
@@ -48,23 +50,22 @@ class ProductosActivity : AppCompatActivity() {
             Toast.makeText(this, "El carrito está vacío", Toast.LENGTH_SHORT).show()
             return
         }
-
-        AlertDialog.Builder(this)
-            .setTitle("Confirmar compra")
-            .setMessage("¿Desea confirmar la compra de ${DataSet.Companion.listaCarrito.size} productos?")
-            .setPositiveButton("Sí") { dialog, which ->
-                // Aquí iría la lógica de compra
-                Toast.makeText(this, "Compra realizada con éxito", Toast.LENGTH_SHORT).show()
-                DataSet.Companion.listaCarrito.clear()
-                adapterCarrito.notifyDataSetChanged()
-                calcularTotal()
-            }
-            .setNegativeButton("No", null)
-            .show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
     }
+
+    override fun actualizarContadorCarrito() {
+
+    }
+
+    /*override fun onConfirmarCompra() {
+        Toast.makeText(this, "Compra realizada con éxito", Toast.LENGTH_SHORT).show()
+        DataSet.listaCarrito.clear()
+        adapterCarrito.notifyDataSetChanged()
+        calcularTotal()
+        DialogoProducto().show(supportFragmentManager, "dialogo")
+    }*/
 }

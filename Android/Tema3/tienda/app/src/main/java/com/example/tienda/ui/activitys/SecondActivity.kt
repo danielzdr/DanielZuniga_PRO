@@ -14,10 +14,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(binding.root)
         acciones()
 
-
-
     }
-
     private fun acciones() {
         val producto= intent.getSerializableExtra("Producto") as Producto
 
@@ -27,8 +24,6 @@ class SecondActivity : AppCompatActivity() {
         binding.textPrecio.text=producto.precio.toString()
         binding.textDescripcion.text=producto.descripcion
         binding.textCategoria.text=producto.categoria
-
-
 
     }
 }

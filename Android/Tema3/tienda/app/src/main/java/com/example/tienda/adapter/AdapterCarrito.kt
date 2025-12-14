@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tienda.R
 import com.example.tienda.databinding.ItemCarritoBinding
+import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
 
 class AdapterCarrito(var listaCarrito: ArrayList<Producto>) :
@@ -36,9 +37,10 @@ class AdapterCarrito(var listaCarrito: ArrayList<Producto>) :
             .into(holder.binding.ivProducto)
 
         holder.binding.btnEliminar.setOnClickListener {
-            listaCarrito.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, listaCarrito.size)
+            listaCarrito.remove(producto)
+            DataSet.listaCarrito.remove(producto)
+            notifyItemRemoved(position-1)
+            //notifyItemRangeChanged(position, listaCarrito.size)
         }
     }
 

@@ -48,6 +48,7 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
         holder.binding.textoNombre.text = producto.nombre
 
         holder.binding.botonDetalle.setOnClickListener {
+
             val intent = Intent(contexto, SecondActivity::class.java)
             intent.putExtra("producto", producto)
             contexto.startActivity(intent)

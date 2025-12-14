@@ -20,6 +20,7 @@ import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
 import com.example.tienda.ui.activitys.ProductosActivity
 import com.example.tienda.ui.activitys.SecondActivity
+import com.example.tienda.ui.dialogs.DialogoCarrito
 import com.example.tienda.ui.dialogs.DialogoInformacion
 import com.google.android.material.snackbar.Snackbar
 
@@ -54,8 +55,10 @@ class MainActivity : AppCompatActivity(),
 
     fun acciones() {
         binding.botonCarrito.setOnClickListener {
-            val intent = Intent(this, ProductosActivity::class.java)
-            startActivity(intent)
+            val dialogoCarrito: DialogoCarrito= DialogoCarrito()
+            dialogoCarrito.show(supportFragmentManager,null)
+            //val intent = Intent(this, ProductosActivity::class.java)
+            //startActivity(intent)
         }
         binding.spinnerCategorias.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -84,35 +87,37 @@ class MainActivity : AppCompatActivity(),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_carrito -> {
+                val dialogoCarrito: DialogoCarrito= DialogoCarrito()
+                dialogoCarrito.show(supportFragmentManager,null)
                 // Navegar a la actividad del carrito
-                val intent = Intent(this, ProductosActivity::class.java)
+                /*val intent = Intent(this, ProductosActivity::class.java)
                 startActivity(intent)
-                return true
+                return true*/
             }
             R.id.menu_filtrar -> {
-                // Filtrar por una categoría específica (ejemplo: "tecnologia")
-                val listaFiltrada = DataSet.getListaFiltrada("tecnologia")
-                adapterProducto.chageList(listaFiltrada)
-                filtroAplicado = true
-                return true
+                // Filtrar por una categoría específica (muebles, tecnologa, ropa o todas)
+               val seleccionSpinner=binding.spinnerCategorias.selectedItem.toString()
+                val lista = DataSet.getListaFiltrada(seleccionSpinner)
+                adapterProducto.chageList(lista)
             }
             R.id.menu_limpiar -> {
                 // Quitar filtro y mostrar todos los productos
-                val listaCompleta = DataSet.lista
-                adapterProducto.chageList(listaCompleta)
-                filtroAplicado = false
-                binding.spinnerCategorias.setSelection(0) // Volver a "Todas"
-                return true
+                val lista= DataSet.getListaFiltrada("todas")
+                adapterProducto.chageList(lista)
             }
             R.id.menu_info->{
-                val dialogoInfromacion: DialogoInformacion= DialogoInformacion()
+                val dialogoInformacion: DialogoInformacion= DialogoInformacion()
                 //el tag que me da el show es para diferenciar entre los diferentes fragments
-                dialogoInfromacion.show(supportFragmentManager,null)
+                dialogoInformacion.show(supportFragmentManager,null)
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        actualizarContadorCarrito()
+    }
     override fun actualizarContadorCarrito() {
         binding.contadorCarrito.text = DataSet.listaCarrito.size.toString()
     }
