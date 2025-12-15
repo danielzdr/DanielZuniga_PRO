@@ -1,0 +1,15 @@
+7) Informes
+El fichero informe.log (y la salida en pantalla) sirven para resumir los
+resultados de la simulación: qué se ha hecho, cómo se han usado los
+recursos (pistas) y qué tipo de vuelos se han gestionado.
+Se genera normalmente al final (por opción de menú o al cerrar el
+programa), y también puede imprimirse por pantalla para ver los datos
+directamente.
+
+
+9) Casos particulares a contemplar
+- Empates: resolver por id de vuelo.
+- Combustible crítico (<=5): elevar a prioridad 2.
+- Pista deshabilitada: reintento en minuto siguiente.
+- Cierre temporal de pista (opcional): habilitada=0 durante N minutos.
+- Cancelaciones (opcional): retirar vuelo de cola y registrar.

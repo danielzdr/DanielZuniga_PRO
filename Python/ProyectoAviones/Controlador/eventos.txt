@@ -1,0 +1,68 @@
+=== LOG DE EVENTOS DEL SISTEMA ===
+Inicio: 2025-12-12 11:17:05
+
+[t=0] SISTEMA_INICIADO
+[t=0] SISTEMA_INICIADO_DESDE_GUI
+[t=5] LLEGADA_PROGRAMADA id_vuelo=IB202 tipo=ATERRIZAJE tiempo=5
+[t=5] ASIGNACION id_vuelo=IB202 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=8] LLEGADA_PROGRAMADA id_vuelo=AF505 tipo=ATERRIZAJE tiempo=8
+[t=8] COMPLETADO id_vuelo=IB202 pista=P01
+[t=8] ASIGNACION id_vuelo=AF505 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=10] LLEGADA_PROGRAMADA id_vuelo=IB101 tipo=ATERRIZAJE tiempo=10
+[t=10] ASIGNACION id_vuelo=IB101 pista=P02 tipo=ATERRIZAJE duracion=3min
+[t=11] COMPLETADO id_vuelo=AF505 pista=P01
+[t=13] COMPLETADO id_vuelo=IB101 pista=P02
+[t=15] LLEGADA_PROGRAMADA id_vuelo=UX303 tipo=DESPEGUE tiempo=15
+[t=15] ASIGNACION id_vuelo=UX303 pista=P01 tipo=DESPEGUE duracion=3min
+[t=18] COMPLETADO id_vuelo=UX303 pista=P01
+[t=20] LLEGADA_PROGRAMADA id_vuelo=VY404 tipo=DESPEGUE tiempo=20
+[t=20] ASIGNACION id_vuelo=VY404 pista=P01 tipo=DESPEGUE duracion=3min
+[t=23] COMPLETADO id_vuelo=VY404 pista=P01
+[t=0] SISTEMA_INICIADO_DESDE_GUI
+[t=5] LLEGADA_PROGRAMADA id_vuelo=IB202 tipo=ATERRIZAJE tiempo=5
+[t=5] ASIGNACION id_vuelo=IB202 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=8] LLEGADA_PROGRAMADA id_vuelo=AF505 tipo=ATERRIZAJE tiempo=8
+[t=8] COMPLETADO id_vuelo=IB202 pista=P01
+[t=8] ASIGNACION id_vuelo=AF505 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=10] LLEGADA_PROGRAMADA id_vuelo=IB101 tipo=ATERRIZAJE tiempo=10
+[t=10] ASIGNACION id_vuelo=IB101 pista=P02 tipo=ATERRIZAJE duracion=3min
+[t=11] COMPLETADO id_vuelo=AF505 pista=P01
+[t=13] COMPLETADO id_vuelo=IB101 pista=P02
+[t=15] LLEGADA_PROGRAMADA id_vuelo=UX303 tipo=DESPEGUE tiempo=15
+[t=15] ASIGNACION id_vuelo=UX303 pista=P01 tipo=DESPEGUE duracion=3min
+[t=18] COMPLETADO id_vuelo=UX303 pista=P01
+[t=20] LLEGADA_PROGRAMADA id_vuelo=VY404 tipo=DESPEGUE tiempo=20
+[t=20] ASIGNACION id_vuelo=VY404 pista=P01 tipo=DESPEGUE duracion=3min
+[t=23] COMPLETADO id_vuelo=VY404 pista=P01
+[t=0] SISTEMA_INICIADO_DESDE_GUI
+[t=5] LLEGADA_PROGRAMADA id_vuelo=IB202 tipo=ATERRIZAJE tiempo=5
+[t=5] ASIGNACION id_vuelo=IB202 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=8] LLEGADA_PROGRAMADA id_vuelo=AF505 tipo=ATERRIZAJE tiempo=8
+[t=8] COMPLETADO id_vuelo=IB202 pista=P01
+[t=8] ASIGNACION id_vuelo=AF505 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=10] LLEGADA_PROGRAMADA id_vuelo=IB101 tipo=ATERRIZAJE tiempo=10
+[t=10] ASIGNACION id_vuelo=IB101 pista=P02 tipo=ATERRIZAJE duracion=3min
+[t=11] COMPLETADO id_vuelo=AF505 pista=P01
+[t=13] COMPLETADO id_vuelo=IB101 pista=P02
+[t=15] LLEGADA_PROGRAMADA id_vuelo=UX303 tipo=DESPEGUE tiempo=15
+[t=15] ASIGNACION id_vuelo=UX303 pista=P01 tipo=DESPEGUE duracion=3min
+[t=18] COMPLETADO id_vuelo=UX303 pista=P01
+[t=20] LLEGADA_PROGRAMADA id_vuelo=VY404 tipo=DESPEGUE tiempo=20
+[t=20] ASIGNACION id_vuelo=VY404 pista=P01 tipo=DESPEGUE duracion=3min
+[t=23] COMPLETADO id_vuelo=VY404 pista=P01
+[t=0] SISTEMA_INICIADO_DESDE_GUI
+[t=5] LLEGADA_PROGRAMADA id_vuelo=IB202 tipo=ATERRIZAJE tiempo=5
+[t=5] ASIGNACION id_vuelo=IB202 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=8] LLEGADA_PROGRAMADA id_vuelo=AF505 tipo=ATERRIZAJE tiempo=8
+[t=8] COMPLETADO id_vuelo=IB202 pista=P01
+[t=8] ASIGNACION id_vuelo=AF505 pista=P01 tipo=ATERRIZAJE duracion=3min
+[t=10] LLEGADA_PROGRAMADA id_vuelo=IB101 tipo=ATERRIZAJE tiempo=10
+[t=10] ASIGNACION id_vuelo=IB101 pista=P02 tipo=ATERRIZAJE duracion=3min
+[t=11] COMPLETADO id_vuelo=AF505 pista=P01
+[t=13] COMPLETADO id_vuelo=IB101 pista=P02
+[t=15] LLEGADA_PROGRAMADA id_vuelo=UX303 tipo=DESPEGUE tiempo=15
+[t=15] ASIGNACION id_vuelo=UX303 pista=P01 tipo=DESPEGUE duracion=3min
+[t=18] COMPLETADO id_vuelo=UX303 pista=P01
+[t=20] LLEGADA_PROGRAMADA id_vuelo=VY404 tipo=DESPEGUE tiempo=20
+[t=20] ASIGNACION id_vuelo=VY404 pista=P01 tipo=DESPEGUE duracion=3min
+[t=23] COMPLETADO id_vuelo=VY404 pista=P01

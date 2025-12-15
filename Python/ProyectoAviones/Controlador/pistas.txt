@@ -1,0 +1,4 @@
+id,categoria,tiempo_uso,habilitada
+P01,COMERCIAL,3,1
+P02,COMERCIAL,3,1  
+P03,EMERGENCIA,2,1
