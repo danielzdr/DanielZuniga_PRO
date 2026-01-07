@@ -17,4 +17,7 @@
     <item
         android:id="@+id/menu_info"
         android:title="Informacion" />
+    <item
+        android:id="@+id/menu_comparar"
+        android:title="Comparar" />
 </menu>

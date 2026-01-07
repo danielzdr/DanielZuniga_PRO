@@ -45,7 +45,11 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
             .centerCrop()
             .into(holder.binding.imagenFila)
 
-        holder.binding.textoNombre.text = producto.nombre
+        holder.binding.nombreTexto.text = producto.nombre
+
+        holder.binding.botonComparar.setOnClickListener {
+            listener.onProductoSeleccionado(producto)
+        }
 
         holder.binding.botonDetalle.setOnClickListener {
 
@@ -54,7 +58,7 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
             contexto.startActivity(intent)
         }
 
-        holder.binding.botonAgregar.setOnClickListener {
+        holder.binding.botonCarrito.setOnClickListener {
             DataSet.addProducto(producto)
             listener.actualizarContadorCarrito()
 
@@ -76,7 +80,12 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
 
     interface OnProductoCarritoListener {
         fun actualizarContadorCarrito()
+        fun onProductoSeleccionado(producto: Producto)
     }
+
+
+
+
 }
 
 

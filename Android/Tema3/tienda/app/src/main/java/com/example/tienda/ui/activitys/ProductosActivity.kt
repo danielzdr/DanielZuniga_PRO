@@ -8,6 +8,7 @@ import com.example.tienda.adapter.AdapterCarrito
 import com.example.tienda.adapter.AdapterProducto
 import com.example.tienda.databinding.ActivityProductosBinding
 import com.example.tienda.dataset.DataSet
+import com.example.tienda.model.Producto
 import com.example.tienda.ui.dialogs.DialogoProducto
 
 class ProductosActivity : AppCompatActivity(), AdapterProducto.OnProductoCarritoListener{
@@ -58,6 +59,10 @@ class ProductosActivity : AppCompatActivity(), AdapterProducto.OnProductoCarrito
     }
 
     override fun actualizarContadorCarrito() {
+
+    }
+
+    override fun onProductoSeleccionado(producto: Producto) {
 
     }
 

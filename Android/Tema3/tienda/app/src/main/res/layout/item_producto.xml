@@ -6,54 +6,74 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="12sp">
+    app:cardElevation="12sp"
+    >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageView
             android:id="@+id/imagenFila"
+            android:scaleType="fitXY"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginTop="4dp"
-            android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:text="NOMBRE"
-            android:textColor="@color/white"
-            android:textSize="25dp"
+            android:id="@+id/nombreTexto"
+            android:textSize="25sp"
             android:paddingBottom="6dp"
-            android:id="@+id/textoNombre"
             android:gravity="center"
+            android:text="NOMBRE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/imagenFila"
             app:layout_constraintEnd_toEndOf="@+id/imagenFila"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/imagenFila" />
 
-        <Button
-            android:id="@+id/botonDetalle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detalle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenFila" />
 
-        <Button
-            android:id="@+id/botonAgregar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Agregar Prod"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imagenFila"
-            />
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/imagenFila"
+            app:layout_constraintStart_toStartOf="@+id/imagenFila"
+            app:layout_constraintTop_toBottomOf="@+id/imagenFila">
+
+            <Button
+                android:id="@+id/botonDetalle"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:text="Detalle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagenFila" />
+
+            <Button
+                android:id="@+id/botonCarrito"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:text=" Carrito"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagenFila" />
+
+
+            <Button
+                android:id="@+id/botonComparar"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"                android:layout_height="wrap_content"
+                android:text="Compara" />
+
+
+        </LinearLayout>
+
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -61,8 +81,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
