@@ -3,14 +3,22 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { FormsModule } from '@angular/forms';
+import { Decisiones } from './components/decisiones/decisiones';
+import { Selecciones } from './components/selecciones/selecciones';
+import { Repeticiones } from './components/repeticiones/repeticiones';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    Decisiones,
+    Selecciones,
+    Repeticiones
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

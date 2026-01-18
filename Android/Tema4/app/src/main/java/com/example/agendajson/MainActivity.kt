@@ -3,111 +3,146 @@ package com.example.agendajson
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.agendajson.adapter.AdapterUser
 import com.example.agendajson.databinding.ActivityMainBinding
+import com.example.agendajson.dialogos.DialogoDetallesUsuario
+import com.example.agendajson.dialogos.DialogoFiltrar
 import com.example.agendajson.model.User
 import com.google.gson.Gson
 import org.json.JSONArray
 
-class MainActivity : AppCompatActivity(), AdapterUser.OnUserListener {
+class MainActivity : AppCompatActivity(), DialogoFiltrar.OnGeneroSeleccionadoListener {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapterUser: AdapterUser
-    private lateinit var listaCompleta: ArrayList<User>
+    private lateinit var adapter: AdapterUser
+    private var listaCompletaUsuarios = ArrayList<User>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-        realizarPeticionJson()
-        val listaUser=ArrayList<User>()
-        adapterUser= AdapterUser(listaUser ,this)
-
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            binding.recyclerUsers.layoutManager =
-                androidx.recyclerview.widget.LinearLayoutManager(this, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false)
-        } else {
-            binding.recyclerUsers.layoutManager =
-                androidx.recyclerview.widget.GridLayoutManager(this, 2, androidx.recyclerview.widget.GridLayoutManager.VERTICAL, false)
-        }
-
-        binding.recyclerUsers.adapter=adapterUser
-
+        instancias()
+        initGUI()
+        realizarPeticionJSON()
     }
 
-    private fun cargarUsers(){
-        val url= "https://dummyjson.com/users"
-        val request= JsonObjectRequest(url,
-            {
-                response->
-                val  usersArray=response.getJSONArray("users")
-                val gson= Gson()
+    private fun instancias() {
+
+        adapter = AdapterUser(this)
+        adapter.setOnItemClickListener { usuario ->
+            // Esto se ejecutará cuando se haga clic en cualquier usuario
+            mostrarDialogoDetalles(usuario)
+        }
+    }
+
+    private fun mostrarDialogoDetalles(usuario: User) {
+        // Usar tu DialogoDetallesUsuario
+        val dialogo = DialogoDetallesUsuario.newInstance(usuario)
+        dialogo.show(supportFragmentManager, "detalles_usuario")
+    }
+
+    private fun initGUI() {
+        setSupportActionBar(binding.toolbar)
+        binding.recyclerUsers.adapter = adapter
+        binding.recyclerUsers.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    private fun realizarPeticionJSON() {
+        val url = "https://dummyjson.com/users"
+        val peticionJSON: JsonObjectRequest = JsonObjectRequest(
+            url,
+            { response ->
+                val gson = Gson()
+                val usersArray: JSONArray = response.getJSONArray("users")
+
+
+                adapter.clearUsers()
+                listaCompletaUsuarios.clear()
+
                 for (i in 0 .. usersArray.length()-1) {
                     val userJSON = usersArray.getJSONObject(i)
                     val user: User = gson.fromJson(
                         userJSON.toString(),
-                        User::class.java)
-                    listaCompleta.add(user)
+                        User::class.java
+                    )
+                    adapter.addUser(user)
+                    listaCompletaUsuarios.add(user) // Guardar copia
                 }
-                adapterUser.setDatos(listaCompleta)
+
+                supportActionBar?.title = "Usuarios (${adapter.itemCount})"
             },
-            {
-                error ->
-                Log.v("conexion","Error al obtener los datos: ${error.toString()}")
+            { error ->
+                Log.e("conexion", "Error en la conexion: ${error.message}")
+                Toast.makeText(this, "Error al cargar usuarios", Toast.LENGTH_SHORT).show()
             })
+
+        Volley.newRequestQueue(this).add(peticionJSON)
     }
 
 
-    private fun realizarPeticionJson() {
-        val url= "https://dummyjson.com/users"
-        //1. Realizar la peticion de forma correcta
-        val peticionJson: JsonObjectRequest= JsonObjectRequest(url,
-            {
-                val gson= Gson()
-                val usersArray: JSONArray= it.getJSONArray("users")
-                for (i in 0 .. usersArray.length()-1){
-                    val userJSON=usersArray.getJSONObject(i)
-                    val user :User =gson.fromJson(userJSON.toString(),
-                        User::class.java)
-                    Log.v("conexion","El nombre del usuario es ${user.firstName}")
-                }
-                Log.v("conexion",usersArray.toString())
-            },
-            {
-                Log.v("conexion","Error al obtener los datos")
-            })
-        //2.Añado la peticion a la pila de Volley
-        Volley.newRequestQueue(this).add(peticionJson)
-
-
-
-    }
-
-    override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main,menu)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-        R.id.menu_filtrar->{
-
+        when(item.itemId) {
+            R.id.menu_filtrar -> {
+                val dialogoFiltrar = DialogoFiltrar()
+                dialogoFiltrar.show(supportFragmentManager, "DialogoFiltrar")
+                return true
+            }
+            R.id.menu_eliminar -> {
+                // Mostrar todos los usuarios
+                onGeneroSeleccionado("Todos")
+                return true
+            }
         }
-        R.id.menu_eliminar->{
-
-        }
-    }
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onUserSeleccionado(user: User) {
 
+
+    override fun onGeneroSeleccionado(genero: String) {
+        Log.d("FILTRO", "Filtrando por: $genero")
+
+
+        adapter.clearUsers()
+
+        if (genero == "Todos") {
+
+            for (user in listaCompletaUsuarios) {
+                adapter.addUser(user)
+            }
+        } else {
+            // Determinar el valor del género para la API
+            val valorGenero = when (genero) {
+                "Masculino" -> "masculino"
+                "Femenino" -> "femenino"
+                else -> genero
+            }
+
+            // Filtrar los usuarios
+            for (user in listaCompletaUsuarios) {
+                if (user.gender.equals(valorGenero, ignoreCase = true)) {
+                    adapter.addUser(user)
+                }
+            }
+        }
+
+
+        supportActionBar?.title = "Usuarios (${adapter.itemCount}) - $genero"
+        Toast.makeText(this, "Filtrado: $genero", Toast.LENGTH_SHORT).show()
     }
 }
+
