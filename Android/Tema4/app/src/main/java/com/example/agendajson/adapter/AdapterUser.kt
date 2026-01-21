@@ -3,37 +3,48 @@ package com.example.agendajson.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.agendajson.MainActivity
+import com.example.agendajson.R
 import com.example.agendajson.databinding.ItemUserBinding
-import com.example.agendajson.databinding.ActivityMainBinding
+import com.example.agendajson.dataset.DataSet
 import com.example.agendajson.model.User
 
 class AdapterUser(var contexto: Context)
     : RecyclerView.Adapter<AdapterUser.MyHolder>() {
-
     private var lista: ArrayList<User>
-    private var onItemClickListener: ((User) -> Unit)? = null
+    private lateinit var listener: OnUserClickListener
 
-    inner class MyHolder(var binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
+
+
+    inner class MyHolder(var binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root){
         init {
-            this.lista = ArrayList()
+            binding.toolbarCard.inflateMenu(R.menu.menu_card)
+            binding.toolbarCard.setOnMenuItemClickListener {
+                when(it.itemId){
+                    R.id.menu_ver_detalles->{
+                        //Llamar y que se quede para siemore el listener en MainActivity
+                        listener.onUserDetalles(lista[bindingAdapterPosition])
+                    }
+                    R.id.menu_agregar->{
+                        //Agregar a favoritos los usuarios
+                        DataSet.agregarUsersFavs(lista[bindingAdapterPosition])
+                    }
+                }
+
+                return@setOnMenuItemClickListener true }
+        }
+    }
+
+        init {
+            lista = ArrayList()
+            listener=contexto as MainActivity
         }
 
-    fun setOnItemClickListener(listener: (User) -> Unit) {
-        this.onItemClickListener = listener
-    }
-
-    fun clearUsers() {
-        val size = lista.size
+        fun clearUsers() {
         lista.clear()
-        notifyItemRangeRemoved(0, size)
-    }
-
-
-        fun updateUsers(newList: List<User>) {
-        lista.clear()
-        lista.addAll(newList)
         notifyDataSetChanged()
         }
 
@@ -53,19 +64,23 @@ class AdapterUser(var contexto: Context)
 
         override fun onBindViewHolder(holder: MyHolder, position: Int) {
             val user = lista[position]
-
-            holder.binding.textNombre.text = user.firstName
+            holder.binding.toolbarCard.title = user.firstName
             holder.binding.textMail.text = user.email
-
             Glide.with(contexto)
                 .load(user.image)
                 .into(holder.binding.imageView)
 
 
-        }
+            }
 
-        override fun getItemCount(): Int {
-            return lista.size
-        }
-
+    override fun getItemCount(): Int {
+        return lista.size
     }
+
+    interface OnUserClickListener {
+        fun onUserDetalles(user: User)
+    }
+    }
+
+
+

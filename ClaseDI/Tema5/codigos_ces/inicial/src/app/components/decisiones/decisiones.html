@@ -1,1 +1,44 @@
+<html>
+  <body>
 <h2>Decisiones</h2>
+<!--<p>Este componente muestra las decisiones, que depende de una condicion.</p>
+crear un boton donde al pulsar muestre u oculte el contenido de la condicion
+<button (click)="toggleCondition()" class="boton btn-primary">Cambiar condición</button>
+<ng-container *ngIf="condition; else elseTemplate">
+  <p>La condicion es verdadera.</p>
+</ng-container>
+<ng-template #elseTemplate>
+  <p>La condicion es falsa.</p>
+</ng-template>
+
+Realizar un formulario de datos donde se debe introducir un nombre, apellidos, edad y salario, años de experiencia.
+El sistema evaluara la idoneidad del candidato tras la pulsacion del boton
+logica-> el candidato tiene mas de 18 años, salario mas de 20000 euros y menos de 2 años de experiencia.
+CANDIDATO IDONEO-> el
+candidato tiene mas de 18 años, salario menos de 50000 euros y mas de 3 años de experiencia.
+CANDIDATO IDONEO-> el
+candidato tiene mas de 18 años, y tiene mas de 10 años de experiencia
+CANDIDATO NO IDONEO-> el reto de los casos del candidato sera descartado.
+alert de bootstrap para mostrar la contratacion del candidato. En caso en que nos e pueda dar
+utilizar un alert diferente para indicar la no contratacion del candidato.
+
+ALERT correcto->"El candidato con nombre {nombre} {apellidos} ha sido contratado"
+ALERT incorrecto->"El candidato con nombre {nombre} {apellidos} no ha sido contratado"-->
+<input class="form-control mb-3" placeholder="Introduce tu nombre" #inputNombre [(ngModel)]="inputNombre">
+<input class="form-control mb-3" placeholder="Introduce tus apellidos" #inputApellidos [(ngModel)]="inputApellidos">
+<input class="form-control mb-3" type="number" placeholder="Introduce tu edad" #inputEdad [(ngModel)]="inputEdad">
+<input class="form-control mb-3" type="number" placeholder="Introduce tu salario" #inputSalario [(ngModel)]="inputSalario">
+<input class="form-control mb-3" type="number" placeholder="Introduce tus años de experiencia" #inputExperiencia [(ngModel)]="inputExperiencia">
+<button (click)="contratar()"
+class="btn btn-primary">Evaluar Candidato</button>
+@if (resolucion && analizada) {
+  <div class="alert alert-success" role="alert">
+    El empleado con nombre {{ nombre }} contratado correctamente
+  </div>
+} @else if (!resolucion && analizada) {
+  <div class="alert alert-danger" role="alert">
+    El empleado con nombre {{ nombre }} se desestima su solicitud
+  </div>
+}
+</body>
+</html>

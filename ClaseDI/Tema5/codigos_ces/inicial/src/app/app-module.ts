@@ -7,13 +7,17 @@ import { FormsModule } from '@angular/forms';
 import { Decisiones } from './components/decisiones/decisiones';
 import { Selecciones } from './components/selecciones/selecciones';
 import { Repeticiones } from './components/repeticiones/repeticiones';
+import { Pablos } from './pablos/pablos';
+import { AlvarosCanos } from './alvaros-canos/alvaros-canos';
 
 @NgModule({
   declarations: [
     App,
     Decisiones,
     Selecciones,
-    Repeticiones
+    Repeticiones,
+    Pablos,
+    AlvarosCanos
   ],
   imports: [
     BrowserModule,

@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './selecciones.css',
 })
 export class Selecciones {
-
+  seleccionTipo=1;
+  
+  
 }

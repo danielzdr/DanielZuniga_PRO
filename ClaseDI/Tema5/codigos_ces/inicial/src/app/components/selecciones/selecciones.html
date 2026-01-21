@@ -1,1 +1,15 @@
 <h2>Selecciones</h2>
+<p>Este componente muestra las selecciones, que depende de una condicion swith.</p>
+<span [ngSwitch]="seleccionTipo">
+  <div *ngSwitchCase="'1'" class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+  </div>
+
+  <div *ngSwitchCase="'2'" class="alert alert-danger" role="alert">
+    A simple success alert—check it out!
+  </div>
+
+  <div *ngSwitchDefault class="alert alert-warning" role="alert">
+    A simple success alert—check it out!
+  </div>
+</span>

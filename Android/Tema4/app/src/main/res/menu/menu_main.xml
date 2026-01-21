@@ -8,6 +8,8 @@
         android:title="Filtrar" />
     <item
         android:id="@+id/menu_eliminar"
-        android:title="Eliminar"
-        />
+        android:title="Eliminar" />
+    <item
+        android:id="@+id/menu_ver_fav"
+        android:title="Ver favoritos"/>
 </menu>
