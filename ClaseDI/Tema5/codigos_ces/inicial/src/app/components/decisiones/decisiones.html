@@ -1,5 +1,4 @@
-<html>
-  <body>
+
 <h2>Decisiones</h2>
 <!--<p>Este componente muestra las decisiones, que depende de una condicion.</p>
 crear un boton donde al pulsar muestre u oculte el contenido de la condicion
@@ -24,13 +23,12 @@ utilizar un alert diferente para indicar la no contratacion del candidato.
 
 ALERT correcto->"El candidato con nombre {nombre} {apellidos} ha sido contratado"
 ALERT incorrecto->"El candidato con nombre {nombre} {apellidos} no ha sido contratado"-->
-<input class="form-control mb-3" placeholder="Introduce tu nombre" #inputNombre [(ngModel)]="inputNombre">
-<input class="form-control mb-3" placeholder="Introduce tus apellidos" #inputApellidos [(ngModel)]="inputApellidos">
-<input class="form-control mb-3" type="number" placeholder="Introduce tu edad" #inputEdad [(ngModel)]="inputEdad">
-<input class="form-control mb-3" type="number" placeholder="Introduce tu salario" #inputSalario [(ngModel)]="inputSalario">
-<input class="form-control mb-3" type="number" placeholder="Introduce tus años de experiencia" #inputExperiencia [(ngModel)]="inputExperiencia">
-<button (click)="contratar()"
-class="btn btn-primary">Evaluar Candidato</button>
+<input class="form-control mb-3" placeholder="Introduce tu nombre"  [(ngModel)]="nombre">
+<input class="form-control mb-3" placeholder="Introduce tus apellidos"  [(ngModel)]="apellido">
+<input class="form-control mb-3" type="number" placeholder="Introduce tu edad"  [(ngModel)]="edad">
+<input class="form-control mb-3" type="number" placeholder="Introduce tu salario"  [(ngModel)]="salario">
+<input class="form-control mb-3" type="number" placeholder="Introduce tus años de experiencia"  [(ngModel)]="experiencia">
+<button (click)="contratar()" class="btn btn-primary">Evaluar Candidato</button>
 @if (resolucion && analizada) {
   <div class="alert alert-success" role="alert">
     El empleado con nombre {{ nombre }} contratado correctamente
@@ -40,5 +38,4 @@ class="btn btn-primary">Evaluar Candidato</button>
     El empleado con nombre {{ nombre }} se desestima su solicitud
   </div>
 }
-</body>
-</html>
+

@@ -1,6 +1,5 @@
 <h2>Selecciones</h2>
-<p>Este componente muestra las selecciones, que depende de una condicion swith.</p>
-<span [ngSwitch]="seleccionTipo">
+<!--<span [ngSwitch]="seleccionTipo">
   <div *ngSwitchCase="'1'" class="alert alert-success" role="alert">
     A simple success alert—check it out!
   </div>
@@ -12,4 +11,48 @@
   <div *ngSwitchDefault class="alert alert-warning" role="alert">
     A simple success alert—check it out!
   </div>
-</span>
+</span>-->
+
+<!--crear un formulario que indique el tipo  de paso que se realizara en una compra
+para ellos se deberan incluir los siguentes campos
+-Nombre
+-Direccion de envio
+-Direccion de facturacion
+-Coste
+-Tipo de pago: 
+  -bizum, pago ordinario, transferencia
+-Boton de validar compra
+En caso de indicar pago ordinario se debera mostrar un input para introducir el numero de tarjeta, cvv, mes/año caducidad
+En caso de indicar bizum se debera mostrar un input para introducir el numero de telefono
+En caso de indicar transferencia se debera mostrar un input para introducir el IBAN
+Una vez de al boton validar en un alert/sweetAlert:
+  -El producto se envia correctamente al usuario NOMBRE
+  Con un coste de XXXX (+%5 si es transferencia)
+  a la direccion de facturacion XXXXX
+  Los datos de pago son :
+  Ordinario: numero de tarjeta XXXX
+  Bizum: numero de telefono XXXX
+  Transferencia: IBAN XXXX --->
+  <input class=" form-control mb-3" placeholder="Introduce tu nombre: " [(ngModel)]="nombre"/>
+  <input class=" form-control mb-3" placeholder="Direccion de envio: " [(ngModel)]="direccionEnvio"/>
+  <input class=" form-control mb-3" placeholder="Direccion de facturacion: " [(ngModel)]="direccionFacturacion"/>
+  <input class="form-control mb-3" type="number" placeholder="Coste: " [(ngModel)]="coste"/>
+  <select class="form-control mb-3" [(ngModel)]="tipoPago">
+    <option value="" disabled selected>Selecciona tipo de pago</option>
+    <option value="bizum">Bizum</option>
+    <option value="ordinario">Pago ordinario</option>
+    <option value="transferencia">Transferencia</option>
+  </select>
+  <button (click)="validarCompra()" class=" form-control mb-3">Validar Compra</button>
+  <div [ngSwitch]="tipoPago">
+    <div *ngSwitchCase="'ordinario'">
+      <input class="form-control mb-3" placeholder="Numero de tarjeta: " [(ngModel)]="numeroTarjeta" type="number"/>
+      <input class="form-control mb-3" placeholder="CVV: " [(ngModel)]="cvv" type="number"/>
+      <input class="form-control mb-3" placeholder="Mes/Año caducidad: " [(ngModel)]="caducidad" type="date"/>
+    </div>
+    <div *ngSwitchCase="'bizum'">
+      <input class="form-control mb-3" placeholder="Numero de telefono: " [(ngModel)]="numeroTelefono" type="number"/>
+    </div>
+    <div *ngSwitchCase="'transferencia'">
+      <input class="form-control mb-3" placeholder="IBAN: " [(ngModel)]="iban"/>
+    </div>
