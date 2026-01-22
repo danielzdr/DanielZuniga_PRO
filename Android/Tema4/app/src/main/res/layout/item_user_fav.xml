@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <Toolbar
-            android:id="@+id/toolbarCard"
+            android:id="@+id/toolbarCard2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_orange_light"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView2"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:src="@mipmap/ic_launcher"
@@ -32,18 +32,18 @@
 
 
         <TextView
-            android:id="@+id/textNombre"
+            android:id="@+id/textNombre2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textMail"
+            app:layout_constraintBottom_toTopOf="@+id/textMail2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textMail"
+            android:id="@+id/textMail2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MAIL"
@@ -51,7 +51,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarCard" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarCard2" />
 
 
 

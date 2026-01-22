@@ -1,4 +1,5 @@
 package com.example.agendajson
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,11 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.agendajson.adapter.AdapterFav
 import com.example.agendajson.adapter.AdapterUser
 import com.example.agendajson.databinding.ActivityMainBinding
 import com.example.agendajson.dialogos.DialogoDetallesUsuario
 import com.example.agendajson.dialogos.DialogoFiltrar
 import com.example.agendajson.model.User
+import com.example.agendajson.ui.SecondActivity
 import com.google.gson.Gson
 import org.json.JSONArray
 
@@ -24,6 +27,7 @@ class MainActivity : AppCompatActivity(), DialogoFiltrar.OnGeneroSeleccionadoLis
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: AdapterUser
     private val urlBase = "https://dummyjson.com/users"
+    private val listaFavoritos = arrayOf<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,9 +88,15 @@ class MainActivity : AppCompatActivity(), DialogoFiltrar.OnGeneroSeleccionadoLis
                 dialogoFiltrar.show(supportFragmentManager, null)
                 return true
             }
-            R.id.menu_eliminar -> {
-                // Mostrar todos los usuarios
-                onGeneroSeleccionado("Todos")
+            R.id.menu_ver_fav->{
+                // Pasar la lista de favoritos a SecondActivity
+                val intent = Intent(this, SecondActivity::class.java)
+                if (listaFavoritos.isNotEmpty()) {
+                    intent.putExtra("users_fav", arrayOf(listaFavoritos))
+                } else {
+                    Toast.makeText(this, "No hay favoritos aún", Toast.LENGTH_SHORT).show()
+                }
+                startActivity(intent)
                 return true
             }
         }

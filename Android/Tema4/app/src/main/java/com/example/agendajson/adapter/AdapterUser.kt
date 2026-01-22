@@ -3,7 +3,7 @@ package com.example.agendajson.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.agendajson.MainActivity
@@ -31,6 +31,7 @@ class AdapterUser(var contexto: Context)
                     R.id.menu_agregar->{
                         //Agregar a favoritos los usuarios
                         DataSet.agregarUsersFavs(lista[bindingAdapterPosition])
+                        Toast.makeText(contexto, "Usuario agregado a favoritos", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -65,6 +66,7 @@ class AdapterUser(var contexto: Context)
         override fun onBindViewHolder(holder: MyHolder, position: Int) {
             val user = lista[position]
             holder.binding.toolbarCard.title = user.firstName
+            holder.binding.textNombre.text= user.lastName
             holder.binding.textMail.text = user.email
             Glide.with(contexto)
                 .load(user.image)
