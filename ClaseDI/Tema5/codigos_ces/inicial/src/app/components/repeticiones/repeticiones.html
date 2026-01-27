@@ -1,1 +1,20 @@
 <h2>Repeticiones</h2>
+<p>El for sirve para poder crear elementos de forma iterativa sobre un array</p>
+<input class="form-control mt-3" type="text" [(ngModel)]="nombre" placeholder="Introduce un nombre:">
+<input class="form-control mt-3" type="text" [(ngModel)]="apellido" placeholder="Introduce un apellido:">
+<input class="form-control mt-3" type="number" [(ngModel)]="edad" placeholder="Introduce una edad:">    
+<div class="row">
+    <div class="col">
+        <input class="form-control mt-3" type="text" [(ngModel)]="hobbie" placeholder="Introduce un hobbie:">
+    </div>
+    <div class="col">
+        <button class="btn btn-secondary mt-3" (click)="usuarios[usuarios.length-1].agregarHobbie()">Añadir hobbie</button>
+    </div>
+</div>
+<button class="btn btn-primary mt-3" (click)="pulsar()">Añadir usuario</button>
+<ul class="list-group mt-3"> 
+    <li *ngFor="let item of usuarios" class="list-group-item">{{item.getNombre()}}, {{item.getApellido()}}, {{item.getEdad()}}, {{item.hobbies}}</li>
+</ul>
+<!--<ul class="list-group">
+    <li *ngFor="let item of usuarios" class="list-group-item">{{item}}</li>
+</ul>-->

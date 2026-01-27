@@ -1,0 +1,15 @@
+<main class="container mt-4">
+  <h2>Esta es una página para gestionar tareas</h2>
+  <select class="form-control mt-4" [(ngModel)]="opcionSeleccionada">
+    <option value="" disabled selected>Seleccione una opción</option>
+    <option value="agregar">Agregar tarea</option>
+    <option value="buscar">Buscar tarea</option>
+    <option value="mostrar">Mostrar tareas</option>
+  </select>
+  <ng-container [ngSwitch]="opcionSeleccionada">
+    <app-agregar *ngSwitchCase="'agregar'"></app-agregar>
+    <app-buscar *ngSwitchCase="'buscar'"></app-buscar>
+    <app-mostrar *ngSwitchCase="'mostrar'"></app-mostrar>
+    <p *ngSwitchDefault class="mt-4 text-muted">Seleccione una opción del menú para comenzar</p>
+  </ng-container>
+</main>

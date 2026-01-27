@@ -1,0 +1,48 @@
+<h3 class="mt-4">Formulario para añadir tareas</h3>
+<input type="text" class="form-control mt-4" 
+       placeholder="Introduce un nombre de la tarea" 
+       [(ngModel)]="nombre">
+<input type="date" class="form-control mt-4" 
+       [(ngModel)]="fecha">
+<input type="text" class="form-control mt-4" 
+       placeholder="Introduce el nombre del responsable" 
+       [(ngModel)]="nombreResponsable">
+<input type="text" class="form-control mt-4" 
+       placeholder="Introduce los items separados por comas (ej: item1, item2, item3)" 
+       [(ngModel)]="items">
+<div class="form-check mt-4">
+  <input class="form-check-input" type="checkbox" id="completadaCheck" 
+         [(ngModel)]="completada">
+  <label class="form-check-label" for="completadaCheck">
+    Tarea completada
+  </label>
+</div>
+<button class="btn btn-primary mt-4" (click)="agregarTarea()">
+  Agregar Tarea
+</button>
+<div class="mt-4">
+  <div *ngIf="!nombre || !fecha || !nombreResponsable || !items" 
+       class="alert alert-warning">
+    <i class="bi bi-exclamation-triangle"></i> Complete todos los campos
+  </div>
+  
+  <div *ngIf="nombre && fecha && nombreResponsable && items" class="alert alert-success">
+    <i class="bi bi-check-circle"></i> Formulario completo
+  </div>
+</div>
+<div *ngIf="listaTareas.length > 0" class="mt-4">
+  <h5>Tareas agregadas: {{ listaTareas.length }}</h5>
+  <div class="list-group">
+    <div *ngFor="let tarea of listaTareas; let i = index" class="list-group-item">
+      <h6>{{ i + 1 }}. {{ tarea.getNombre() }}</h6>
+      <small class="text-muted">
+        Responsable: {{ tarea.getNombreResponsable() }} | 
+        Fecha: {{ tarea.getFecha().toLocaleDateString() }} | 
+        Items: {{ tarea.getItems().length }} | 
+        Estado: {{ tarea.isCompletada() ? 'Completada' : 'Pendiente' }}
+      </small>
+    </div>
+  </div>
+</div>
+
+
