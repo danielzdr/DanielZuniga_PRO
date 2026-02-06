@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        tools:layout="@layout/login_fragment"
+        android:id="@+id/loginFragment"
+        android:name="com.example.tienda.ui.fragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registroFragment"
+            app:destination="@id/registroFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/registro_fragment"
+        android:id="@+id/registroFragment"
+        android:name="com.example.tienda.ui.fragment.RegistroFragment"
+        android:label="RegistroFragment" >
+        <action
+            android:id="@+id/action_registroFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_registroFragment_to_dialogoRegistro"
+            app:destination="@id/dialogoRegistro" />
+        <action
+            android:id="@+id/action_registroFragment_to_dialogoError"
+            app:destination="@id/dialogoError" />
+        <argument
+            android:name="mail"
+            app:argType="string" />
+        <argument
+            android:name="pass"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_main"
+        android:id="@+id/mainFragment"
+        android:name="com.example.tienda.ui.fragment.MainFragment"
+        android:label="MainFragment" />
+    <dialog
+        android:id="@+id/dialogoRegistro"
+        android:name="com.example.tienda.ui.dialog.DialogoRegistro"
+        android:label="DialogoRegistro" >
+        <action
+            android:id="@+id/action_dialogoRegistro_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_dialogoRegistro_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogoError"
+        android:name="com.example.tienda.ui.dialog.DialogoError"
+        android:label="DialogoError" />
+</navigation>

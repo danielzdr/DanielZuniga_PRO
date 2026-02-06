@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/loginFragment"
+        android:name="com.example.practica.ui.fragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registroFragment"
+            app:destination="@id/registroFragment" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="pass"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_registro"
+        android:id="@+id/registroFragment"
+        android:name="com.example.practica.ui.fragment.RegistroFragment"
+        android:label="RegistroFragment" >
+        <action
+            android:id="@+id/action_registroFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_registroFragment_to_dialogoOk"
+            app:destination="@id/dialogoOk" />
+        <action
+            android:id="@+id/action_registroFragment_to_dialogoError"
+            app:destination="@id/dialogoError" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_main"
+        android:id="@+id/mainFragment"
+        android:name="com.example.practica.ui.fragment.MainFragment"
+        android:label="MainFragment" />
+    <dialog
+        android:id="@+id/dialogoOk"
+        android:name="com.example.practica.ui.fragment.dialog.DialogoOk"
+        android:label="DialogoOk" >
+        <action
+            android:id="@+id/action_dialogoOk_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_dialogoOk_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogoError"
+        android:name="com.example.practica.ui.fragment.dialog.DialogoError"
+        android:label="DialogoError" />
+</navigation>

@@ -7,13 +7,15 @@ import { Agregar } from './componentes/agregar/agregar';
 import { Mostrar } from './componentes/mostrar/mostrar';
 import { Buscar } from './componentes/buscar/buscar';
 import { FormsModule } from '@angular/forms';
+import { ImagenesPipe } from './pipes/imagenes-pipe';
 
 @NgModule({
   declarations: [
     App,
     Agregar,
     Mostrar,
-    Buscar
+    Buscar,
+    ImagenesPipe
   ],
   imports: [
     BrowserModule,

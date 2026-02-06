@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "239912912356",
+    "firebase_url": "https://dzrces2526-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "dzrces2526",
+    "storage_bucket": "dzrces2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239912912356:android:ba2922083082ef4e5d33f1",
+        "android_client_info": {
+          "package_name": "com.example.practica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNush0i7Fwr4T4yNigxiwwhQZThC2C6-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239912912356:android:9801b419183d25c95d33f1",
+        "android_client_info": {
+          "package_name": "com.example.tienda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNush0i7Fwr4T4yNigxiwwhQZThC2C6-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

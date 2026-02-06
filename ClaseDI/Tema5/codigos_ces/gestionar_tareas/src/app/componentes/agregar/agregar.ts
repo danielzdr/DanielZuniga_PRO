@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Tarea } from '../../modelos/Tarea';
+import { Tareas } from '../../services/tareas';
 
 @Component({
   selector: 'app-agregar',
@@ -9,75 +10,59 @@ import { Tarea } from '../../modelos/Tarea';
   styleUrl: './agregar.css',
 })
 export class Agregar {
-  nombre: string = '';
-  fecha: string = '';
-  nombreResponsable: string = '';
-  items: string = '';
-  completada: boolean = false;
-  
-  // Lista para almacenar las tareas creadas
-  listaTareas: Tarea[] = [];
+ items: string[] = [];
+  nombre?: string;
+  fecha?: string;
+  responsable?: string;
+  prioridad?: string;
+  completada?: boolean;
+  descripcion?: string;
+  item?: string;
 
+  constructor( private tareaService: Tareas ) {
+      //logica para el tareaService
+
+  }
+  
   agregarTarea() {
-    if (!this.nombre || !this.fecha || !this.nombreResponsable || !this.items) {
+    if (!this.nombre || !this.fecha || !this.responsable || !this.items || this.completada === undefined) {
       Swal.fire({
-        title: "Error, Datos incompletos",
+        title: "Error, Rellena los campos",
         text: "Por favor complete todos los campos antes de agregar la tarea.",
         icon: "error",
       });
       return;
-    }
-
-    const itemsArray = this.items.split(',').map(item => item.trim()).filter(item => item !== '');
-    
-    if (itemsArray.length === 0) {
+    }else{
+      let Tareas: Tarea = {
+      nombre: this.nombre,
+      responsable: this.responsable,
+      items: this.items,
+      fecha: this.fecha,
+      prioridad: Number(this.prioridad),
+      descipcion: this.descripcion,
+      completada: this.completada,
+    };
+      this.tareaService.agregarTareas(Tareas);
+      this.limpiarCampos();
       Swal.fire({
-        title: "Error",
-        text: "Debe ingresar al menos un item separado por comas",
-        icon: "error",
+        title: "Tarea agregada",
+        text: "La tarea ha sido agregada exitosamente.",
+        icon: "success",
       });
-      return;
     }
-    const fechaDate = new Date(this.fecha);
-    const nuevaTarea = new Tarea(
-      this.nombre,
-      fechaDate,
-      this.nombreResponsable,
-      itemsArray,
-      this.completada
-    );
-    const tareaExistente = this.listaTareas.find(
-      tarea => tarea.getNombre().toLowerCase() === nuevaTarea.getNombre().toLowerCase()
-    );
-
-    if (tareaExistente) {
-      Swal.fire({
-        title: "Error",
-        text: "Ya existe una tarea con ese nombre",
-        icon: "error",
-      });
-      return;
+        
     }
-    this.listaTareas.push(nuevaTarea);
-    Swal.fire({
-      title: "Tarea agregada",
-      text: `La tarea "${nuevaTarea.getNombre()}" ha sido agregada exitosamente.`,
-      icon: "success",
-    });
 
-    console.log('Tarea creada:', nuevaTarea);
-    console.log('Lista de tareas:', this.listaTareas);
-
-    this.limpiarCampos();
-  }
 
   limpiarCampos() {
     this.nombre = '';
     this.fecha = '';
-    this.nombreResponsable = '';
-    this.items = '';
-    this.completada = false;
+    this.responsable = '';
+    this.items = [];
+    this.prioridad = '';
+    this.descripcion = '';
   }
 
   
 }
+

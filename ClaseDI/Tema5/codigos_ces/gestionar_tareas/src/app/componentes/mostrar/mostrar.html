@@ -1,17 +1,25 @@
-<h3 class="mt-4">Mostrar el conjunto de tareas</h3>
-<!--Mostrar el las tareas mediante un conjunto de cards que se agregaron en el componente agregar-->
-<div class="row mt-4">
-  <div *ngFor="let tarea of listaTareas; let i = index" class="col-md-4 mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ tarea.getNombre() }}</h5>
-        <p class="card-text mt-4">
-          <strong class="mb-4">Responsable:</strong> {{ tarea.getNombreResponsable() }}
-          <strong class="mb-4">Fecha:</strong> {{ tarea.getFecha().toLocaleDateString() }}
-          <strong class="mb-4">Items:</strong> {{ tarea.getItems().length }}
-          <strong class="mb-4">Estado:</strong> {{ tarea.isCompletada() ? 'Completada' : 'Pendiente' }}
-        </p>
+<h3 class="mt-4">Mostrar</h3>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @for (item of tareas; track $index) {
+    <div class="col">
+      <div class="card">
+        <img [src]="item.prioridad |imagenes" class="card-img-top mb-3" alt="Imagen de tarea">
+        <div class="card-body"></div>
+        <h5 class="card-title">{{ item.nombre | uppercase }}</h5>
+        <p class="card-text"><strong>Responsable:</strong> {{ item.responsable }}</p>
+        <ul class="list-group">
+          @for (item of item.items; track $index) {
+              <li class="list-group-item"><strong>item:</strong> {{ item }}</li>
+          }
+        </ul>
+        <p>{{item.fecha | date}}</p>
       </div>
     </div>
+  }
   </div>
+
+
+<div *ngIf="tareas.length === 0" class="alert alert-info mt-4">
+  <i class="bi bi-info-circle"></i> No hay tareas disponibles.
 </div>

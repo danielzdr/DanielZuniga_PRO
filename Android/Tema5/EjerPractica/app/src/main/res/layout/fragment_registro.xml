@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pantalla inicio"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/textNombre"
+        android:layout_height="wrap_content"
+        android:text="Introduce el nombre: "
+        android:inputType="text"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <EditText
+        android:id="@+id/textApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingroduce el apellido: "
+        android:inputType="text"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <Spinner
+        android:id="@+id/spinnerEdad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textoMail"
+        android:text="Introduce el correo"
+        android:inputType="textEmailAddress"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textoPass"
+        android:text="Introduce la contraseña"
+        android:inputType="textPassword"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/botonReg"
+        android:text="Registrar"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
