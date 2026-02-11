@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentImportacion">
+    <fragment
+        tools:layout="@layout/importacion_fragment"
+        android:id="@+id/fragmentImportacion"
+        android:name="com.example.examenes.ui.fragment.FragmentImportacion"
+        android:label="FragmentImportacion" >
+        <action
+            android:id="@+id/action_fragmentImportacion_to_dialogoOkey"
+            app:destination="@id/dialogoOkey" />
+        <action
+            android:id="@+id/action_fragmentImportacion_to_dialogoError"
+            app:destination="@id/dialogoError" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogoError"
+        android:name="com.example.examenes.ui.dialog.DialogoError"
+        android:label="DialogoError" >
+        <action
+            android:id="@+id/action_dialogoError_to_fragmentImportacion"
+            app:destination="@id/fragmentImportacion" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogoOkey"
+        android:name="com.example.examenes.ui.dialog.DialogoOkey"
+        android:label="DialogoOkey" >
+        <action
+            android:id="@+id/action_dialogoOkey_to_fragmentImportacion"
+            app:destination="@id/fragmentImportacion" />
+        <action
+            android:id="@+id/action_dialogoOkey_to_fragmentListado"
+            app:destination="@id/fragmentListado" />
+    </dialog>
+    <fragment
+        tools:layout="@layout/detalle_fragment"
+        android:id="@+id/fragmentDetalle"
+        android:name="com.example.examenes.ui.fragment.FragmentDetalle"
+        android:label="FragmentDetalle" />
+    <fragment
+        tools:layout="@layout/listado_fragment"
+        android:id="@+id/fragmentListado"
+        android:name="com.example.examenes.ui.fragment.FragmentListado"
+        android:label="FragmentListado" >
+        <action
+            android:id="@+id/action_fragmentListado_to_fragmentDetalle"
+            app:destination="@id/fragmentDetalle" />
+    </fragment>
+</navigation>
