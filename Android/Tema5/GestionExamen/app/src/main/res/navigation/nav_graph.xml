@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fraagmentImportacion">
+    <fragment
+        tools:layout="@layout/importacion_fragment"
+        android:id="@+id/fraagmentImportacion"
+        android:name="com.example.gestion.ui.fragment.FragmentImportacion"
+        android:label="FraagmentImportacion" >
+        <action
+            android:id="@+id/action_fraagmentImportacion_to_dialogoOkey"
+            app:destination="@id/dialogoOkey" />
+        <action
+            android:id="@+id/action_fraagmentImportacion_to_dialogoError"
+            app:destination="@id/dialogoError" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/listado_fragment"
+        android:id="@+id/fragmentListado"
+        android:name="com.example.gestion.ui.fragment.FragmentListado"
+        android:label="FragmentListado" >
+        <action
+            android:id="@+id/action_fragmentListado_to_fragmentDetalle"
+            app:destination="@id/fragmentDetalle" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/detalle_fragment"
+        android:id="@+id/fragmentDetalle"
+        android:name="com.example.gestion.ui.fragment.FragmentDetalle"
+        android:label="FragmentDetalle" />
+    <dialog
+        android:id="@+id/dialogoError"
+        android:name="com.example.gestion.ui.dialog.DialogoError"
+        android:label="DialogoError" />
+    <dialog
+        android:id="@+id/dialogoOkey"
+        android:name="com.example.gestion.ui.dialog.DialogoOkey"
+        android:label="DialogoOkey" >
+        <action
+            android:id="@+id/action_dialogoOkey_to_fragmentListado"
+            app:destination="@id/fragmentListado" />
+        <action
+            android:id="@+id/action_dialogoOkey_to_fraagmentImportacion"
+            app:destination="@id/fraagmentImportacion" />
+    </dialog>
+</navigation>

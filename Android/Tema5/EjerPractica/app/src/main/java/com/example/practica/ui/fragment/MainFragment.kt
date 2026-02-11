@@ -14,7 +14,11 @@ import com.example.practica.adapter.AdapterUser
 import com.example.practica.databinding.FragmentMainBinding
 import com.example.practica.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import org.json.JSONArray
 
@@ -51,7 +55,7 @@ class MainFragment: Fragment() {
         val peticionJSON: JsonObjectRequest= JsonObjectRequest(urlBase, {
             Log.v("datos", "llega")
             val gson = Gson()
-            val usersArray: JSONArray = it.getJSONArray("usuarios")
+            val usersArray: JSONArray = it.getJSONArray("users")
             for (i in 0..usersArray.length() - 1) {
                 val userJSON = usersArray.getJSONObject(i)
                 val user: Usuario = gson.fromJson(userJSON.toString(), Usuario::class.java)
@@ -60,19 +64,62 @@ class MainFragment: Fragment() {
         }, {
             Log.v("datos", "error")
         })
-        Volley.newRequestQueue(this).add(peticionJSON)
+        Volley.newRequestQueue(requireContext()).add(peticionJSON)
     }
 
     override fun onResume() {
         super.onResume()
-        binding.nombreTextView.text=uid
+       // binding.nombreTextView.text=uid
+
+            /*.addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    binding.nombreTextView.text="Bienvenid@ ${snapshot.value}"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })*/
+                database.reference.child("usuarios").child(uid)
+            .addChildEventListener(object : ChildEventListener{
+                override fun onChildAdded(
+                    snapshot: DataSnapshot,
+                    previousChildName: String?
+                ) {
+                    binding.nombreTextView.text="Bienvenid@ ${snapshot.value}"
+                }
+
+                override fun onChildChanged(
+                    snapshot: DataSnapshot,
+                    previousChildName: String?
+                ) {
+                    binding.nombreTextView.text="Cmabiando Alfredo"
+                }
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {
+                    binding.nombreTextView.text="Eliminado ${snapshot.value}"
+                }
+
+                override fun onChildMoved(
+                    snapshot: DataSnapshot,
+                    previousChildName: String?
+                ) {
+                    binding.nombreTextView.text="Moviendo ${snapshot.value}"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
         binding.guardarDatos.setOnClickListener {
-            val referencia=database.reference.child("practica").child(uid)
-                .child("usuarios").child("nombre").push()
-            referencia.setValue("App de practica")
+            val referencia=database.reference.child("usuarioLogeado").child(auth.currentUser!!.uid)
+            referencia.setValue("users")
+            //referencia.setValue(Usuario("daniel","zuñiga",25, "daniel@gmail.com", "Ces12345a", 1))
         }
         binding.eliminarDatos.setOnClickListener {
-            val  referencia=database.reference.child("practica")
+            val  referencia=database.reference.child("usuarios").child(uid)
                 referencia.setValue(null)
         }
     }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login Fragment"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:layout_marginBottom="20dp"
+        android:padding="16dp"/>
+    <EditText
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el correo"
+        android:id="@+id/emailEditText"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce la contraseña"
+        android:id="@+id/passEditText"
+        android:inputType="textPassword"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Iniciar sesión"
+        android:id="@+id/loginButton"/>
+
+
+</LinearLayout>

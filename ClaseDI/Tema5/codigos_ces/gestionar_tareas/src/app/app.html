@@ -1,27 +1,45 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/agregar">Agregar</a>
-    <a class="navbar-brand" routerLink="/buscar">Buscar</a>
-    <a class="navbar-brand" routerLink="/mostrar">Mostrar</a>
+    <div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="navbar-brand" [routerLink]="['agregar']">Agregar</a>
+        <a class="navbar-brand" [routerLink]="['listar']">Listar</a>
+        <a
+          class="nav-link dropdown-toggle"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Buscar
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="navegar('3')">Alta</a></li>
+          <li><a class="dropdown-item" (click)="navegar('2')">Media</a></li>
+          <li><a class="dropdown-item" (click)="navegar('1')">Baja</a></li>
+          <li><a class="dropdown-item" (click)="navegar('4')">Todas</a></li>
+        </ul>
+      </ul>
+    </div>
   </div>
 </nav>
 <main class="container mt-4">
-  <router-outlet>
-
-</router-outlet>
-</main>
-  <!--<h2>Esta es una página para gestionar tareas</h2>
-  <select class="form-select mt-4" [(ngModel)]="opcionSeleccionada">
-    <option value="" disabled selected>Seleccione una opción</option>
-    <option value="agregar">Agregar tarea</option>
-    <option value="buscar">Buscar tarea</option>
-    <option value="mostrar">Mostrar tareas</option>
+  <!-- <h1>TODO LIST</h1>
+  <select class="form-select mb-4" [(ngModel)]="opcion">
+    <option value="1">Agregar</option>
+    <option value="2">Buscar</option>
+    <option value="3">Listar</option>
   </select>
-  <ng-container [ngSwitch]="opcionSeleccionada">
-    <app-agregar *ngSwitchCase="'agregar'"></app-agregar>
-    <app-buscar *ngSwitchCase="'buscar'"></app-buscar>
-    <app-mostrar *ngSwitchCase="'mostrar'"></app-mostrar>
-    <p *ngSwitchDefault class="mt-4 text-muted">Seleccione una opción del menú para comenzar</p>
-  </ng-container>>
-</main>-->
+  @switch (opcion) {
+    @case ('1') {
+      <app-agregar></app-agregar>
+    }
+    @case ('2') {
+      <app-buscar></app-buscar>
+    }
+    @case ('3') {
+      <app-listar></app-listar>
+    }
+  } -->
 
+  <router-outlet></router-outlet>
+</main>

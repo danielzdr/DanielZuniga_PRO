@@ -15,15 +15,18 @@ class DialogoOk: DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder: AlertDialog.Builder= AlertDialog.Builder(requireContext())
+
+        val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Registro correcto")
         builder.setMessage("El usuario se ha registrado correctamente.")
-        builder.setPositiveButton("OK"){dialog, which ->
+        builder.setPositiveButton("OK") { dialog, which ->
             findNavController().navigate(R.id.action_dialogoOk_to_mainFragment)
         }
-        builder.setNegativeButton("Cancelar"){dialog, which ->
+        builder.setNegativeButton("Cancelar") { dialog, which ->
             findNavController().navigate(R.id.action_dialogoOk_to_loginFragment2)
         }
         return builder.create()
+
+
     }
 }

@@ -46,10 +46,9 @@ class AdapterUser(var contexto: Context)
         holder.binding.toolbarCard.title=user.nombre
         holder.binding.textApellido.text=user.apellido
         holder.binding.textMail.text=user.email
-        holder.binding.textPass.text=user.password
-        Glide.with(contexto)
-            .load(user.imagen)
-            .into(holder.binding.imageView)
+        //Glide.with(contexto)
+           // .load(user.imagen)
+            //.into(holder.binding.imageView)
     }
 
     override fun getItemCount(): Int {

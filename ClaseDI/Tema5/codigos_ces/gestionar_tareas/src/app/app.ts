@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,5 +9,13 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
-  opcionSeleccionada:string='';
+  protected readonly title = signal('Gestionar Tareas');
+  opcionSeleccionada:string='1';
+
+  constructor(private gestorRutas:Router) { }
+
+  navegar(parm: String) {
+    this.gestorRutas.navigate(['buscar',parm]);
+}
+
 }

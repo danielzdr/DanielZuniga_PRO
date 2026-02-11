@@ -46,11 +46,15 @@ class LoginFragment: Fragment() {
                             "Usuario o contraseña incorrectos", Snackbar.LENGTH_LONG)
                             .setAction("Quieres registrarte?"){
                                 //para pasar datos entre fragments
-                                val bundle: Bundle = Bundle()
+                                /*val bundle: Bundle = Bundle()
                                 bundle.putString("email",binding.textoMail.text.toString())
                                 bundle.putString("pass",binding.textoPass.text.toString())
                                 findNavController().navigate(R.id.action_loginFragment_to_registroFragment,
-                                    bundle)
+                                    bundle)*/
+                                val bundle: Bundle = Bundle()
+                                bundle.putString("email",binding.textoMail.text.toString())
+                                bundle.putString("pass",binding.textoPass.text.toString())
+                                findNavController().navigate(R.id.action_loginFragment_to_registroFragment,bundle)
                             }
                             .show()
                     }

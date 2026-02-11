@@ -34,13 +34,14 @@ export class Agregar {
       return;
     }else{
       let Tareas: Tarea = {
+      id: -1, //el id se asignará automáticamente en el servicio
       nombre: this.nombre,
       responsable: this.responsable,
       items: this.items,
       fecha: this.fecha,
-      prioridad: Number(this.prioridad),
+      prioridad:(this.prioridad),
       descipcion: this.descripcion,
-      completada: this.completada,
+    
     };
       this.tareaService.agregarTareas(Tareas);
       this.limpiarCampos();
