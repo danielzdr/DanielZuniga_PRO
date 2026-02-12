@@ -1,27 +1,43 @@
 package com.example.practica.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.practica.R
 import com.example.practica.databinding.CardUserBinding
 import com.example.practica.model.Usuario
+import com.google.android.material.snackbar.Snackbar
 
 class AdapterUser(var contexto: Context)
     : RecyclerView.Adapter<AdapterUser.MyHolder>() {
     private var lista: MutableList<Usuario> = mutableListOf()
+    private lateinit var listener: onUserClickListener
 
     inner class MyHolder(var binding: CardUserBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            //binding.toolbarCard.inflateMenu(R.menu.menu_card)
-        }
-    }
+            binding.toolbarCard.inflateMenu(R.menu.menu_card)
+            binding.toolbarCard.setOnMenuItemClickListener {
+                when(it.itemId){
 
-    fun clearUsers() {
-        lista.clear()
-        notifyDataSetChanged()
+                    R.id.menu_ver_detalles->{
+                        val bundle: Bundle= Bundle()
+                        bundle.putSerializable("usuario", lista[adapterPosition])
+                        findNavController(binding.root).navigate(R.id.action_loginFragment_to_dialogoDetalleUsuario,bundle)
+                    }
+                    R.id.menu_apellido->{
+                        Snackbar.make(binding.root, "Apellido: ${lista[adapterPosition].apellido}", Snackbar.LENGTH_SHORT).show()
+                    }
+                }
+                return@setOnMenuItemClickListener true
+            }
+            }
+        init {
+            lista=mutableListOf()
+            listener=contexto as onUserClickListener
+        }
     }
 
     fun addUsuario(user: Usuario) {
@@ -53,6 +69,10 @@ class AdapterUser(var contexto: Context)
 
     override fun getItemCount(): Int {
         return lista.size
+    }
+
+    interface onUserClickListener{
+        fun onUserDetalles(usuario: Usuario)
     }
 }
 

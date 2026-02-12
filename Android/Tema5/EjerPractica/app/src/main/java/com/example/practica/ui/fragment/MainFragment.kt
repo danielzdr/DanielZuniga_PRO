@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley
 import com.example.practica.adapter.AdapterUser
 import com.example.practica.databinding.FragmentMainBinding
 import com.example.practica.model.Usuario
+import com.example.practica.ui.fragment.dialog.DialogoDetalleUsuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import org.json.JSONArray
 
-class MainFragment: Fragment() {
+class MainFragment: Fragment(), AdapterUser.onUserClickListener {
     private lateinit var binding: FragmentMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var uid:String
@@ -47,7 +48,7 @@ class MainFragment: Fragment() {
         binding.recyclerView.adapter=adapterUser
         binding.recyclerView.layoutManager=
             LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
-        realizarPeticionJSON()
+
         return binding.root
     }
 
@@ -69,51 +70,44 @@ class MainFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-       // binding.nombreTextView.text=uid
-
-            /*.addListenerForSingleValueEvent(object : ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    binding.nombreTextView.text="Bienvenid@ ${snapshot.value}"
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-
-            })*/
-                database.reference.child("usuarios").child(uid)
-            .addChildEventListener(object : ChildEventListener{
+        val gson= Gson()
+        database.reference.child("usuarios").child("usuario").addChildEventListener(
+            object : ChildEventListener{
                 override fun onChildAdded(
                     snapshot: DataSnapshot,
                     previousChildName: String?
                 ) {
-                    binding.nombreTextView.text="Bienvenid@ ${snapshot.value}"
+                    val usuario: Usuario=gson.fromJson(snapshot.value.toString(), Usuario::class.java)
+                    Log.v("consulta", usuario.nombre.toString())
                 }
 
                 override fun onChildChanged(
                     snapshot: DataSnapshot,
                     previousChildName: String?
                 ) {
-                    binding.nombreTextView.text="Cmabiando Alfredo"
+
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {
-                    binding.nombreTextView.text="Eliminado ${snapshot.value}"
+
                 }
 
                 override fun onChildMoved(
                     snapshot: DataSnapshot,
                     previousChildName: String?
                 ) {
-                    binding.nombreTextView.text="Moviendo ${snapshot.value}"
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
 
                 }
 
-            })
+            }
+        )
+
         binding.guardarDatos.setOnClickListener {
+            realizarPeticionJSON()
             val referencia=database.reference.child("usuarioLogeado").child(auth.currentUser!!.uid)
             referencia.setValue("users")
             //referencia.setValue(Usuario("daniel","zuñiga",25, "daniel@gmail.com", "Ces12345a", 1))
@@ -122,5 +116,10 @@ class MainFragment: Fragment() {
             val  referencia=database.reference.child("usuarios").child(uid)
                 referencia.setValue(null)
         }
+    }
+
+    override fun onUserDetalles(usuario: Usuario) {
+      val dialogoDetalleUsuario= DialogoDetalleUsuario.newInstance(usuario)
+        dialogoDetalleUsuario.show(requireFragmentManager(),null)
     }
 }

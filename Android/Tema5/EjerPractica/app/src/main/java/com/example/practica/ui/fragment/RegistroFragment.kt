@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase
 class RegistroFragment: Fragment() {
     private lateinit var binding: FragmentRegistroBinding
     private lateinit var auth: FirebaseAuth
-    private val urlBase = "https://dummyjson.com/users"
     private lateinit var listaEdades: ArrayList<Int>
     private lateinit var AdapterEdad: ArrayAdapter<Int>
     private var nombre: String? = null
@@ -72,7 +71,7 @@ class RegistroFragment: Fragment() {
                         binding.textNombre.text.toString(),
                         binding.textApellido.text.toString(),
                         binding.spinnerEdad.selectedItem.toString().toInt(),
-                        binding.textoMail.text.toString()))
+                        binding.textoMail.text.toString(),binding.textoPass.text.toString() ))
                     val bundle= Bundle()
                     bundle.putString("id",usuarioLogeado)
                     findNavController().navigate(R.id.action_registroFragment_to_dialogoOk)

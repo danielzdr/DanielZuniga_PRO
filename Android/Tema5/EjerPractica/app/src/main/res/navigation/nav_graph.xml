@@ -19,8 +19,8 @@
             android:name="pass"
             app:argType="string" />
         <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_loginFragment_to_dialogoDetalleUsuario"
+            app:destination="@id/dialogoDetalleUsuario" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_registro"
@@ -57,4 +57,12 @@
         android:id="@+id/dialogoError"
         android:name="com.example.practica.ui.fragment.dialog.DialogoError"
         android:label="DialogoError" />
+    <dialog
+        android:id="@+id/dialogoDetalleUsuario"
+        android:name="com.example.practica.ui.fragment.dialog.DialogoDetalleUsuario"
+        android:label="DialogoDetalleUsuario" >
+        <action
+            android:id="@+id/action_dialogoDetalleUsuario_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </dialog>
 </navigation>
