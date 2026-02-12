@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Cerrar Sesion"
+        android:id="@+id/menuCerrarSesion"
+        />
+    <item
+        android:title="Importar Marcas"
+        android:id="@+id/menuImportarMarcas"
+        />
+    <item
+        android:title="Ver Coches"
+        android:id="@+id/menuVerCoches"
+        />
+    <item
+        android:title="Ver motos"
+        android:id="@+id/menuVerMotos"
+        />
+</menu>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentLogin">
+    <fragment
+        tools:layout="@layout/login_fragment"
+        android:id="@+id/fragmentLogin"
+        android:name="com.example.concesionario.ui.fragment.FragmentLogin"
+        android:label="FragmentLogin" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_dialogoRegistro"
+            app:destination="@id/dialogoRegistro" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentListado"
+            app:destination="@id/fragmentListado" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogoRegistro"
+        android:name="com.example.concesionario.dialog.DialogoRegistro"
+        android:label="DialogoRegistro" >
+        <action
+            android:id="@+id/action_dialogoRegistro_to_fragmentRegistro"
+            app:destination="@id/fragmentRegistro" />
+    </dialog>
+    <fragment
+        tools:layout="@layout/listado_fragment"
+        android:id="@+id/fragmentListado"
+        android:name="com.example.concesionario.ui.fragment.FragmentListado"
+        android:label="FragmentListado" />
+    <fragment
+        tools:layout="@layout/registro_fragment"
+        android:id="@+id/fragmentRegistro"
+        android:name="com.example.concesionario.ui.fragment.FragmentRegistro"
+        android:label="FragmentRegistro" >
+        <action
+            android:id="@+id/action_fragmentRegistro_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
+</navigation>
