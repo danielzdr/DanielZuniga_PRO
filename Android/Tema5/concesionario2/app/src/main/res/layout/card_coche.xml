@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Guideline horizontal al 20% desde arriba (para separar la imagen del toolbar) -->
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top"
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.20" />
 
-        <!-- Guideline vertical al 40% desde la izquierda (para alinear datos a la derecha de la imagen) -->
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_start"
             android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.50" />
 
-        <!-- Guideline horizontal al 90% desde arriba (para límite inferior) -->
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_bottom"
             android:layout_width="wrap_content"

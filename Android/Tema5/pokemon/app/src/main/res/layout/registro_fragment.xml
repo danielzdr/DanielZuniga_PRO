@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pantalla Registro"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Introduce el nombre"
+        android:inputType="text"
+        android:id="@+id/editNombre"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Introduce el apellido"
+        android:inputType="text"
+        android:id="@+id/editApellido"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Introduce el correo"
+        android:inputType="textEmailAddress"
+        android:id="@+id/editCorreo"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Introduce la contraseña"
+        android:inputType="textPassword"
+        android:id="@+id/editPass"
+        />
+    <Spinner
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerEdad"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:id="@+id/botonRegistro"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

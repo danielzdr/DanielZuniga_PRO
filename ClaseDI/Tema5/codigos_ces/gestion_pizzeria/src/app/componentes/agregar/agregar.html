@@ -1,0 +1,18 @@
+<h2>Agregar Pizza</h2>
+<input type="text" class="form-control mb-3" placeholder="Nombre de la pizza" [(ngModel)]="nombre">
+<input type="number" class="form-control mb-3" placeholder="Introduce un numero de telefono" [(ngModel)]="telefono">
+<input type="text" class="form-control mb-3" placeholder="Responsable" [(ngModel)]="responsable">
+<input type="text" class="form-control mb-3" placeholder="Ingredientes (separados por comas)" [(ngModel)]="ingredientes">
+<button class="btn btn-secondary mb-3" (click)="agregarIngrediente(ing)">Agregar Ingrediente</button>
+<ul class="list-group mb-3">
+  <li class="list-group-item" *ngFor="let ingrediente of ingredientesList">{{ ingrediente }}</li>
+</ul>
+<!--Poner un switch con los diferentes tamaños de pizza -->
+<select class="form-select mb-3" [(ngModel)]="prioridad">
+  <option value="" disabled selected>Selecciona la prioridad</option>
+  <option value="1">Alta</option>
+  <option value="2">Media</option>
+  <option value="3">Baja</option>
+</select>
+<input type="number" class="form-control mb-3" placeholder="Precio" [(ngModel)]="precio">
+<button class="btn btn-primary" (click)="agregarPizza()">Agregar Pizza</button>

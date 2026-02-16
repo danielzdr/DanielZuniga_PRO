@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.concesionario.adapter.AdapterCoche
 import com.example.concesionario.databinding.ListadoFragmentBinding
+import com.example.concesionario.model.Coche
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -46,13 +47,12 @@ class FragmentListado: Fragment() {
         binding.recyclerView.layoutManager= LinearLayoutManager(
             requireContext(), LinearLayoutManager.VERTICAL,false
         )
-
         val gson: Gson= Gson()
         database.getReference("coches").addValueEventListener(
             object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (i in snapshot.children){
-                        val coche= gson.fromJson(i.value.toString(), com.example.concesionario.model.Coche::class.java)
+                        val coche= gson.fromJson(i.value.toString(), Coche::class.java)
                         adapterCoche.addCoche(coche)
                     }
                 }

@@ -1,0 +1,17 @@
+<div class="col">
+  <div class="card">
+    <img [src]="item!!.prioridad | imagenes" class="card-img-top" style="width: 50%" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ item!!.nombre | uppercase }}</h5>
+      <p class="card-text">
+        {{ item!!.telefono }}
+      </p>
+      <ul class="list-group">
+        @for (data of item!!.ingredientes; track $index) {
+          <li class="list-group-item">{{ data }}</li>
+        }
+      </ul>
+      <p>{{ item!!.precio | currency }}</p>
+    </div>
+  </div>
+</div>

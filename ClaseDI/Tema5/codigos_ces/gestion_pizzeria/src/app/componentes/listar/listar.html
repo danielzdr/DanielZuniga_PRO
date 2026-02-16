@@ -1,0 +1,6 @@
+<h2>Lista de Pizzas</h2>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  @for (data of pizzas; track $index) {
+    <app-carta [item]="data"></app-carta>
+  }
+</div>
