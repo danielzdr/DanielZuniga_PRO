@@ -8,9 +8,7 @@ const routes: Routes = [
   {path:"agregar",component:Agregar},
   {path:"buscar",component:Buscar},
   {path:"mostrar",component:Mostrar},
-  {path:"**",pathMatch:"full",redirectTo:"agregar"}
-
-];
+  {path:"**",pathMatch:"full",redirectTo:"agregar"}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
