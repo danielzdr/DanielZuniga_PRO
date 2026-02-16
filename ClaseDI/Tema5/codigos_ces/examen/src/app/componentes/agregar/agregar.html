@@ -1,0 +1,15 @@
+<h2>Agregar Examen</h2>
+<input type="text" class="form-control mb-2" placeholder="ID" [(ngModel)]="id">
+<input type="text" class="form-control mb-2" placeholder="Nombre" [(ngModel)]="nombre">
+<input type="text" class="form-control mb-2" placeholder="Asignatura" [(ngModel)]="asignatura">
+<select class="form-control mb-2" [(ngModel)]="nota">
+  <option value="" disabled selected>Nota</option>
+  <option value="1">Insuficiente</option>
+  <option value="2">Suficiente</option>
+  <option value="3">Bien</option>
+  <option value="4">Notable</option>
+  <option value="5">Sobresaliente</option>
+</select>
+<textarea class="form-control mb-2" placeholder="Descripción" [(ngModel)]="descripcion"></textarea>
+<input type="date" class="form-control mb-2" [(ngModel)]="fecha">
+<button class="btn btn-primary" (click)="agregarExamen()">Agregar</button>

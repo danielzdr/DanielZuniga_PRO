@@ -1,0 +1,19 @@
+<div class="col">
+  <div class="card">
+    <img [src]="item!!.nota | imagenes" class="card-img-top" style="width: 50%" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ item!!.nombre | uppercase }}</h5>
+      <p class="card-text">
+        {{ item!!.id }}
+      </p>
+      <p>
+        {{ item!!.asignatura }}
+      </p>
+      <p>
+        {{ item!!.descripcion }}
+      </p>
+      <p>{{ item!!.fecha | date }}</p>
+    </div>
+  </div>
+</div>
+
