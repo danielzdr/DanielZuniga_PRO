@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-navegar(arg0: string) {
-  this.router.navigate([arg0]);
-}
+
   protected readonly title = signal('examen');
   constructor(private router:Router) {
     
   }
+  navegar(parm: String) {
+    this.router.navigate(['buscar',parm]);
+}
 }

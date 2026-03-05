@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <img [src]="examen!!.nota | imagenes" />
+  </div>
+  <div>
+    <p>
+      {{ examen?.nombre }}
+    </p>
+    <p>
+      {{ examen?.descripcion }}
+    </p>
+    <p>
+      {{ examen?.asignatura }}
+    </p>
+    <p>
+      {{ examen?.fecha | date }}
+    </p>
+  </div>
+</div>
+

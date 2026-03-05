@@ -13,6 +13,7 @@
         {{ item!!.descripcion }}
       </p>
       <p>{{ item!!.fecha | date }}</p>
+      <button class="btn btn-primary" (click)="verDetalle(item!!.id)">Ver detalle </button>
     </div>
   </div>
 </div>

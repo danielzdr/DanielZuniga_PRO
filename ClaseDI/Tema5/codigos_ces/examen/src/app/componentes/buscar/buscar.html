@@ -1,7 +1,17 @@
 <h2>Buscar Examen Por nota</h2>
 <div class="row">
   <div class="col">
-<input placeholder="introduce nota" class="form-control" [(ngModel)]="nota" />
+<select class="form-select" [(ngModel)]="nota">
+  <option value="">Selecciona una nota</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+  </div>
+  <div class="col">
 <button class="btn btn-primary w-100" (click)="realizarBusqueda()">Buscar Notas</button>
 
 @if (busqueda) {

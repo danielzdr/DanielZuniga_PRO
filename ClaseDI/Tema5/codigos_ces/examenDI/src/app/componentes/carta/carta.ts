@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Examen } from '../../model/examen';
+import { Libro } from '../../modelo/libro';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,13 +9,16 @@ import { Router } from '@angular/router';
   styleUrl: './carta.css',
 })
 export class Carta {
-  @Input() item?: Examen;
+  @Input() item?:Libro;
 
-  constructor(private router: Router) {}
+  constructor( private router: Router){
+    
+  }
 
+  agregarAlCarrito(id: number) {
+    this.router.navigate(['/carrito', id]);
+  }
   verDetalle(id: number) {
     this.router.navigate(['/detalle', id]);
   }
-
-
 }

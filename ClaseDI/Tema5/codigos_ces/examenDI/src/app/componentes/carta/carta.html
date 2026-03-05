@@ -1,0 +1,26 @@
+<div class="col">
+  <div class="card">
+    <img [src]="item!! | imagenes" class="card-img-top" style="width: 50%" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ item!!.Title| uppercase }}</h5>
+      <p class="card-text">
+        {{ item!!.Year }}
+      </p>
+      <ul class="list-group">
+        @for (data of item!!.Villanos; track $index) {
+          <li class="list-group-item">{{ data }}</li>
+        }
+      </ul>
+      <div class="row">
+        <div class="col">
+      <button (click)="verDetalle(item!!.id)" class="btn btn-primary w-100">Ver Detalle</button>
+        </div>
+      <div class="col">
+      <button (click)="agregarAlCarrito(item!!.id)" class="btn btn-primary w-100">Agregar al Carrito</button>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

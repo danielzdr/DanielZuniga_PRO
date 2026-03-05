@@ -3,23 +3,21 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { FormsModule } from '@angular/forms';
-import { Agregar } from './componentes/agregar/agregar';
-import { Buscar } from './componentes/buscar/buscar';
-import { Listar } from './componentes/listar/listar';
-import { ImagenesPipe } from './pipes/imagenes-pipe';
+import { Libros } from './componentes/libros/libros';
+import { Carrito } from './componentes/carrito/carrito';
 import { Carta } from './componentes/carta/carta';
 import { Detalle } from './componentes/detalle/detalle';
+import { ImagenesPipe } from './pipes/imagenes-pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     App,
-    Agregar,
-    Buscar,
-    Listar,
-    ImagenesPipe,
+    Libros,
+    Carrito,
     Carta,
-    Detalle
+    Detalle,
+    ImagenesPipe
   ],
   imports: [
     BrowserModule,
